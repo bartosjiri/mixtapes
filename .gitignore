@@ -1,0 +1,13 @@
+# Dependencies
+/node_modules/
+
+# Production
+/public/build/
+
+# Misc
+.DS_Store
+.directory
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
