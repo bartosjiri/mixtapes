@@ -1,13 +1,19 @@
 # Dependencies
 /node_modules/
+/src/node_modules/@sapper/
 
 # Production
 /public/build/
+/__sapper__/
 
-# Misc
-.DS_Store
-.directory
+# Environment
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Misc
+.DS_Store
+.directory
+yarn-error.log
