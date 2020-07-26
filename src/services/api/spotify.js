@@ -35,5 +35,6 @@ export const getUserPlaylists = async (token, userId) => {
     }
   });
 
-  return await result.json();
+  const data = await result.json();
+  return data.items;
 };
