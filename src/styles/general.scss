@@ -1,0 +1,17 @@
+/* General */
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Mukta", sans-serif;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
