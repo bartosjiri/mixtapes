@@ -2,9 +2,13 @@ import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
-require('dotenv').config()
+require('dotenv').config();
 
-import {getClientToken, getUserProfile, getUserPlaylists} from "./api/spotify";
+import appConfig from "./configuration/application.yml";
+import playlistsConfig from "./configuration/playlists.yml";
+
+import {getClientToken, getUserProfile, getUserPlaylists} from "./services/api/spotify";
+import compilePlaylists from "./services/playlists/playlists";
 
 const {PORT, NODE_ENV} = process.env;
 const dev = NODE_ENV === 'development';
@@ -13,8 +17,9 @@ const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
 
 let clientToken = null;
-let userProfile = null;
-let userPlaylists = null;
+let profileData = null;
+let playlistsData = null;
+let playlists = null;
 
 (async () => {
 	try {
@@ -24,29 +29,35 @@ let userPlaylists = null;
 	}
 
 	try {
-		userProfile = await getUserProfile(clientToken, "wizzler");
+		profileData = await getUserProfile(clientToken, appConfig.user_id);
 	} catch (err) {
-		console.log("[ERROR] userProfile: ", err);
+		console.log("[ERROR] profileData: ", err);
 	}
 
 	try {
-		userPlaylists = await getUserPlaylists(clientToken, "wizzler");
+		playlistsData = await getUserPlaylists(clientToken, appConfig.user_id);
 	} catch (err) {
-		console.log("[ERROR] userPlaylists: ", err);
+		console.log("[ERROR] playlistsData: ", err);
+	} finally {
+		playlists = compilePlaylists(appConfig, playlistsConfig, playlistsData);
 	}
-})();
 
-polka()
-	.use(
-		compression({threshold: 0}),
-		sirv('static', {dev}),
-		sapper.middleware({
-			session: () => ({
-				userProfile,
-				userPlaylists
+	console.log("[server] playlists: ", playlists);
+
+
+	polka()
+		.use(
+			compression({threshold: 0}),
+			sirv('static', {dev}),
+			sapper.middleware({
+				session: () => ({
+					application: appConfig,
+					profile: profileData,
+					playlists
+				})
 			})
-		})
-	)
-	.listen(PORT, err => {
-		if (err) console.log('[ERROR] server.js: ', err);
-	});
+		)
+		.listen(PORT, err => {
+			if (err) console.log('[ERROR] server.js: ', err);
+		});
+})();
