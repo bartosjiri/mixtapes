@@ -1,23 +1,34 @@
-<script>
-  import Nav from "../components/Nav.svelte";
+<script context="module">
+  export async function preload(page, session) {
+    const { application, profile, playlists } = session;
 
-  export let segment;
+    return {
+      application,
+      profile,
+      playlists,
+    };
+  }
+</script>
+
+<script>
+  import { setContext } from "svelte";
+  import Header from "../components/header/Header.svelte";
+
+  export let application;
+  export let profile;
+  export let playlists;
+
+  setContext("application", application);
+  setContext("profile", profile);
+  setContext("playlists", playlists);
 </script>
 
 <style global lang="scss">
   @import "../styles/reset.scss";
-
-  main {
-    position: relative;
-    max-width: 56em;
-    background-color: white;
-    padding: 2em;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+  @import "../styles/general.scss";
 </style>
 
-<Nav {segment} />
+<Header />
 
 <main>
   <slot />
