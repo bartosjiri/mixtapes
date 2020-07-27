@@ -13,5 +13,10 @@ body {
 
   &.noscroll {
     overflow: hidden;
+    animation: 0.8s delay-overflow;
+
+    @keyframes delay-overflow {
+      from { overflow: auto; }
+    }
   }
 }

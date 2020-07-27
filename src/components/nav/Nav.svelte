@@ -25,13 +25,15 @@
     justify-content: center;
     background: #ffffff;
     opacity: 0;
-    z-index: -1;
+    z-index: 99;
     overflow: auto;
+    pointer-events: none;
     transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 
     &.active {
       opacity: 1;
-      z-index: 99;
+      pointer-events: initial;
+      transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
     ul {
