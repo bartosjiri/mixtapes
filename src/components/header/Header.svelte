@@ -75,7 +75,10 @@
 
 <header id="header">
   <h1>
-    Mixtapes by {application.name ? application.name : profile.display_name}
+    Mixtapes by
+    <a href={application.url} rel="external">
+      {application.name ? application.name : profile.display_name}
+    </a>
   </h1>
   <div class="controls" on:click={toggleNav}>
     <svg
