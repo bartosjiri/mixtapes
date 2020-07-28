@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Nav from "../nav/Nav.svelte";
   import { getContext } from "svelte";
+  import Nav from "../nav/Nav.svelte";
 
   const application = getContext("application");
   const profile = getContext("profile");
@@ -19,11 +19,11 @@
     };
   });
 
-  let navActive = false;
+  let active = false;
 
   const toggleNav = () => {
     document.body.classList.toggle("noscroll");
-    navActive = !navActive;
+    active = !active;
   };
 </script>
 
@@ -79,7 +79,7 @@
   </h1>
   <div class="controls" on:click={toggleNav}>
     <svg
-      class={!navActive && 'active'}
+      class:active={!active}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 15 15"
       width="15"
@@ -95,7 +95,7 @@
       <rect y="12" width="3" height="3" />
     </svg>
     <svg
-      class={navActive && 'active'}
+      class:active
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 357 357"
       width="15"
@@ -107,4 +107,4 @@
   </div>
 </header>
 
-<Nav active={navActive} />
+<Nav {active} on:toggle={toggleNav} />

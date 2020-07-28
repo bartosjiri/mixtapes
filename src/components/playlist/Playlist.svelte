@@ -59,7 +59,7 @@
     on:leave={() => {
       active = false;
     }}>
-    <article class:active bind:this={ref}>
+    <article class:active bind:this={ref} id={slug}>
       <span style={`background: ${color}`} />
       <div class="container">
         <figure>

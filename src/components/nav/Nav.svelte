@@ -1,10 +1,17 @@
 <script>
   import { onMount } from "svelte";
   import { getContext } from "svelte";
+  import { createEventDispatcher } from "svelte";
 
-  export let active;
+  export let active = false;
 
   const playlists = getContext("playlists");
+  const dispatch = createEventDispatcher();
+
+  const goTo = (slug) => {
+    document.getElementById(slug).scrollIntoView();
+    dispatch("toggle");
+  };
 </script>
 
 <style lang="scss">
@@ -22,7 +29,8 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background: #ffffff;
     opacity: 0;
     z-index: 99;
@@ -46,12 +54,12 @@
       padding: 12rem 0 8rem;
 
       li {
-        a {
-          img {
-            width: 100%;
-            max-width: $itemWidth;
-            object-fit: contain;
-          }
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          max-width: $itemWidth;
+          object-fit: contain;
         }
       }
     }
@@ -62,10 +70,8 @@
   <ul>
     {#each playlists as playlist}
       {#if playlist.image}
-        <li>
-          <a href="asdsa">
-            <img src={playlist.image} alt={playlist.id} />
-          </a>
+        <li on:click={() => goTo(playlist.slug)}>
+          <img src={playlist.image} alt={playlist.id} />
         </li>
       {/if}
     {:else}

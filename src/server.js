@@ -42,9 +42,6 @@ let playlists = null;
 		playlists = compilePlaylists(appConfig, playlistsConfig, playlistsData);
 	}
 
-	console.log("[server] playlists: ", playlists);
-
-
 	polka()
 		.use(
 			compression({threshold: 0}),
