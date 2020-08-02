@@ -69,7 +69,7 @@
 
 <svelte:head>
   <title>
-    Mixtapes | {application.name ? application.name : profile.display_name}
+    Mixtapes by {application.name ? application.name : profile.display_name}
   </title>
 </svelte:head>
 
