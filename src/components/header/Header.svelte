@@ -49,6 +49,8 @@
       position: relative;
       height: 1.5rem;
       width: 1.5rem;
+      padding: 1rem;
+      margin-right: -1rem;
       cursor: pointer;
 
       svg {
