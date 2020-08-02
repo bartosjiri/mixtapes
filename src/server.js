@@ -13,8 +13,8 @@ import compilePlaylists from "./services/playlists/playlists";
 const {PORT, NODE_ENV} = process.env;
 const dev = NODE_ENV === 'development';
 
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
+const clientId = process.env.SPOTIFY_CLIENT_ID;
+const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 
 let clientToken = null;
 let profileData = null;
