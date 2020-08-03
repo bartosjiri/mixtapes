@@ -3,6 +3,10 @@
   font-size: 62.5%;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 body {
   font-family: "Mukta", sans-serif;
   font-weight: normal;
