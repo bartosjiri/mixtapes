@@ -52,6 +52,7 @@
       padding: 1rem;
       margin-right: -1rem;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
 
       svg {
         position: absolute;

@@ -78,7 +78,7 @@
         max-height: 642px;
         object-fit: contain;
         pointer-events: none;
-        z-index: 3;
+        z-index: 2;
         transition: transform 0.8s ease-in-out;
       }
 
@@ -89,7 +89,7 @@
         transform: translate(-50%, -50%);
         height: 75vmin;
         max-height: 642px;
-        z-index: 2;
+        z-index: 3;
       }
     }
   }
