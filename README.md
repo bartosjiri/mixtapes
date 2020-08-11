@@ -21,14 +21,14 @@ For more information about folder structure, bundler config and more, check out 
 
 ## Configuration
 
-In order to fetch user data from Spotify's API, you will need to provide your client ID and client secret:
+In order to fetch user/playlist data from Spotify's API, you will need to provide your client ID and client secret:
 
 1. Register a new application and obtain your Spotify client ID and secret ([guide](https://developer.spotify.com/documentation/general/guides/app-settings/)).
-2. Create a `.env` file in the root folder of the project and fill in your credentials:
-    ```
+2. Create a new `.env` file in the root folder of the project and fill in your credentials:
+    ```sh
     cp .env.example .env
     ```
-    *Note: If you are hosting your application on Netlify or similar services, you will need to provide your credential throught their interface ([guide](https://docs.netlify.com/configure-builds/environment-variables/)).* 
+    *Note: Do not share your credentials in public. If you are hosting your application on Netlify or similar services, you will need to provide these throught its interface ([guide](https://docs.netlify.com/configure-builds/environment-variables/)).* 
 
 The general application configuration is located in the `src/configuration/application.yml` file:
 
@@ -50,11 +50,12 @@ You can optionally customize individual playlists in the `src/configuration/play
 
 ## Deployment
 
+You can deploy the exported application on your server or use a hosted solution:
+
 - Export a static production version of the project:
-    ```
+    ```sh
     npx sapper export
     ```
-- Deploy on Netlify:
-	```
-    TBD
-    ```
+- [Fork the repository](https://github.com/bartosjiri/mixtapes/fork) and deploy on Netlify:
+
+	[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bartosjiri/mixtapes)
