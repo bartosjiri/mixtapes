@@ -1,6 +1,6 @@
 # Mixtapes
 
-Showcase your Spotify playlists in style.
+A Svelte application to showcase your Spotify playlists in style.
 
 ## Preview
 `TBD`
@@ -50,12 +50,17 @@ You can optionally customize individual playlists in the `src/configuration/play
 
 ## Deployment
 
-You can deploy the exported application on your server or use a hosted solution:
+You can export the application and host it on your server:
 
-- Export a static production version of the project:
-    ```sh
+1. Export the static version of the application:
+	 ```sh
     npx sapper export
     ```
-- [Fork the repository](https://github.com/bartosjiri/mixtapes/fork) and deploy on Netlify:
+2. Upload the contents of the `__sapper__/export` folder on your server.
 
-	[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bartosjiri/mixtapes)
+Alternatively, you can deploy the application through static site hosting services like [Netlify](https://netlify.app):
+1. Setup the build command to `npm run export`.
+2. Setup the publish directory to `__sapper__/export`.
+3. Declare the environment variables `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` and its values ([configuration - step 1](#configuration)).
+
+	*Note: In Netlify, you can set this up under "Settings > Build & deploy > Environment > Environment variables".*
