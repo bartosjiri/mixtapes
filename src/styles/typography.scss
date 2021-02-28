@@ -1,0 +1,10 @@
+@import "./fonts.scss";
+
+/* Typography */
+$typography-weight-base: 900;
+
+@mixin typography-font-primary {
+  font-family: $font-family-primary, sans-serif;
+  font-weight: $typography-weight-base;
+  text-transform: uppercase;
+}

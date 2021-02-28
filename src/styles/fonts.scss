@@ -1,0 +1,14 @@
+/* Fonts */
+$font-family-primary: "hfjegpo85cgirg50";
+
+@font-face {
+    font-family: $font-family-primary;
+    src: url('../../static/fonts/hfjegpo85cgirg50.eot');
+    src: url('../../static/fonts/hfjegpo85cgirg50.eot?#iefix') format('embedded-opentype'),
+        url('../../static/fonts/hfjegpo85cgirg50.woff2') format('woff2'),
+        url('../../static/fonts/hfjegpo85cgirg50.woff') format('woff'),
+        url('../../static/fonts/hfjegpo85cgirg50.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
