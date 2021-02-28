@@ -1,0 +1,37 @@
+@import "../../styles/colors.scss";
+
+/* Playlist progress */
+.progress {
+  display: flex;
+  align-items: center;
+
+  .total {
+    color: $color-text-secondary;
+  }
+
+  .bar {
+    position: relative;
+    width: 8rem;
+    height: 2px;
+    background: $color-text-secondary;
+    margin: 0 0.5rem;
+
+    .value {
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: $color-text-primary;
+      animation: progress;
+
+      @keyframes progress {
+        from {
+          width: 0%
+        }
+
+        to {
+          width: 100%
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+/* Playlist cover */
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    position: relative;
+    width: 100vmin;
+
+    .image {
+      padding: 10rem;
+  
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+}

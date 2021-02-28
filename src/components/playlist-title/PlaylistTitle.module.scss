@@ -1,0 +1,37 @@
+/* Playlist title */
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+  mix-blend-mode: difference;
+  // perspective: 800px;
+
+  .container {
+    display: block;
+    height: 20rem;
+
+    &:hover {
+      h2 {
+        color: white;
+      }
+    }
+
+    h2 {
+      font-size: 16rem;
+      color: transparent;
+      -webkit-text-stroke: 3px white;
+      padding: 0 25rem 0 1rem;
+      background: inherit;
+      background-clip: text;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
+}
