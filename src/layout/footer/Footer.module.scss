@@ -1,0 +1,18 @@
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
+
+  .progress {
+    justify-self: start;
+  }
+
+  // .undefined {
+  //   justify-self: end;
+  // }
+}
