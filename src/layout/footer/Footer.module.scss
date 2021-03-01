@@ -7,6 +7,7 @@
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr;
+  z-index: 200;
 
   .progress {
     justify-self: start;

@@ -8,10 +8,13 @@ import {PROGRESS_DURATION_SECONDS} from "../../configuration/application"
 import style from "./PlaylistProgress.module.scss"
 
 const PlaylistProgress = () => {
-  const {playlist} = useContext(Store)
+  const {autoplay, setAutoplay, playlist} = useContext(Store)
 
   return (
-    <div className={style.progress}>
+    <div
+      className={`${style.progress} ${autoplay ? style.active : ""}`}
+      onClick={() => setAutoplay(!autoplay)}
+    >
       <span className={style.current}>
         {(playlist + 1).toString().padStart(2, '0')}
       </span>
