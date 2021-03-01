@@ -1,8 +1,12 @@
 import React, {useState} from "react"
+import {SwitchTransition, CSSTransition} from "react-transition-group"
 import Ticker from "react-ticker"
 import PageVisibility from "react-page-visibility"
 
-import {TITLE_SCROLL_SPEED} from "../../configuration/application"
+import {
+  TITLE_SCROLL_SPEED,
+  TITLE_TRANSITION_SECONDS
+} from "../../configuration/application"
 
 import style from "./PlaylistTitle.module.scss"
 
@@ -18,14 +22,30 @@ const PlaylistTitle = ({title}) => {
       <div className={style.container}>
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && (
-            <Ticker
-              mode="chain"
-              speed={TITLE_SCROLL_SPEED}
-            >
-              {() => (
-                <h2>{title}</h2>
-              )}
-            </Ticker>
+            <SwitchTransition mode="in-out">
+              <CSSTransition
+                key={title}
+                timeout={{
+                  enter: 0,
+                  exit: TITLE_TRANSITION_SECONDS * 1000
+                }}
+                classNames={{
+                  enterActive: style.entering,
+                  exitActive: style.exiting
+                }}
+              >
+                <div className={style.item}>
+                  <Ticker
+                    mode="chain"
+                    speed={TITLE_SCROLL_SPEED}
+                  >
+                    {() => (
+                      <h2 style={{animationDuration: `${TITLE_TRANSITION_SECONDS}s`}}>{title}</h2>
+                    )}
+                  </Ticker>
+                </div>
+              </CSSTransition>
+            </SwitchTransition>
           )}
         </PageVisibility>
       </div>
