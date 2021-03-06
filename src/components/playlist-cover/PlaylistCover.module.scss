@@ -1,4 +1,6 @@
 /* Playlist cover */
+$animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
 .cover {
   position: absolute;
   top: 0;
@@ -12,16 +14,64 @@
 
   .container {
     position: relative;
+    display: block;
     width: 100vmin;
+    height: 100vh;
 
-    .image {
+    .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      // height: 100%;
       padding: 10rem;
-  
+      overflow: hidden;
+
+      &.entering {
+        img {
+          animation: coverEntering;
+          animation-timing-function: $animation-timing;
+        }
+      }
+
+      &.exiting {
+        img {
+          animation: coverExiting;
+          animation-timing-function: $animation-timing;
+        }
+      }
+
       img {
         display: block;
         width: 100%;
       }
+
+      @keyframes coverEntering {
+        from {
+          opacity: 0;
+          transform: translateY(-10%);
+          filter: url(#coverFilter);
+        }
+
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes coverExiting {
+        from {
+          opacity: 1;
+        }
+        
+        to {
+          opacity: 0;
+        }
+      }
     }
   }
 
+  svg {
+    position: absolute;
+  }
 }
