@@ -31,6 +31,8 @@ const PlaylistTitle = ({title}) => {
                 }}
                 classNames={{
                   enterActive: style.entering,
+                  enter: style.entering,
+                  enterDone: style.entering,
                   exitActive: style.exiting
                 }}
               >

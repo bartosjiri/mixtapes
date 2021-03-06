@@ -7,11 +7,15 @@
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr;
+  padding: 3rem 6rem;
   z-index: 200;
-
 
   .logo {
     justify-self: start;
+
+    h1 {
+      font-size: 2.4rem;
+    }
   }
 
   .author {

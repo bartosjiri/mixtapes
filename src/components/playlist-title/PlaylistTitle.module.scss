@@ -1,3 +1,5 @@
+@import "../../styles/typography.scss";
+
 /* Playlist title */
 $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 
@@ -15,8 +17,9 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 
   .container {
     position: relative;
-    display: block;
-    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     &:hover {
       .item {
@@ -28,10 +31,9 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 
     .item {
       position: absolute;
-      top: 0;
+      display: block;
       left: 0;
       right: 0;
-      height: 100%;
       cursor: pointer;
 
       &.entering {
@@ -50,6 +52,7 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
     }
 
     h2 {
+      @include typography-font-secondary;
       font-size: 16rem;
       color: transparent;
       -webkit-text-stroke: 3px white;
@@ -57,35 +60,25 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
       background: inherit;
       background-clip: text;
       white-space: nowrap;
-      animation: titleEntering;
-      animation-timing-function: $animation-timing;
     }
 
     @keyframes titleEntering {
       from {
-        // background: rgba(0, 255, 0, 0.5); // @DEBUG
-        transform: rotateX(90deg) translateZ(10rem);
-        transform: rotateX(90deg) translateZ(5rem);
+        transform: rotateX(90deg) translateZ(8rem);
       }
 
       to {
-        // background: rgba(0, 255, 0, 0.5); // @DEBUG
-        transform: rotateX(0) translateZ(10rem);
-        transform: rotateX(0) translateZ(5rem);
+        transform: rotateX(0) translateZ(8rem);
       }
     }
     
     @keyframes titleExiting {
       from {
-        // background: rgba(255, 0, 0, 0.5); // @DEBUG
-        transform: rotateX(0) translateZ(10rem);
-        transform: rotateX(0) translateZ(5rem);
+        transform: rotateX(0) translateZ(8rem);
       }
       
       to {
-        // background: rgba(255, 0, 0, 0.5); // @DEBUG
-        transform: rotateX(-90deg) translateZ(10rem);
-        transform: rotateX(-90deg) translateZ(5rem);
+        transform: rotateX(-90deg) translateZ(8rem);
       }
     }
   }
