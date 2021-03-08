@@ -5,7 +5,7 @@ import {Store} from "../../store/Store"
 import playlists from "../../configuration/playlists"
 import {PROGRESS_DURATION_SECONDS} from "../../configuration/application"
 
-const PlaylistController = () => {
+const BrowserController = () => {
   const {autoplay, playlist, setPlaylist} = useContext(Store)
 
   useEffect(() => {
@@ -22,4 +22,4 @@ const PlaylistController = () => {
   return null
 }
 
-export default PlaylistController
+export default BrowserController

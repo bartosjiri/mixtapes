@@ -1,6 +1,6 @@
-/* Playlist cover */
-$animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+@import "../../styles/transitions.scss";
 
+/* Browser cover */
 .cover {
   position: absolute;
   top: 0;
@@ -30,14 +30,15 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
       &.entering {
         img {
           animation: coverEntering;
-          animation-timing-function: $animation-timing;
+          animation-timing-function: $transition-playlist;
         }
       }
 
       &.exiting {
         img {
           animation: coverExiting;
-          animation-timing-function: $animation-timing;
+          animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
         }
       }
 
@@ -47,24 +48,25 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
       }
 
       @keyframes coverEntering {
-        from {
+        0% {
           opacity: 0;
           transform: translateY(-10%);
           filter: url(#coverFilter);
         }
 
-        to {
+        100% {
           transform: translateY(0);
           opacity: 1;
         }
       }
       
       @keyframes coverExiting {
-        from {
+        0% {
           opacity: 1;
         }
         
-        to {
+        50%,
+        100% {
           opacity: 0;
         }
       }

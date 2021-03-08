@@ -1,30 +1,14 @@
-import React, {useContext} from "react"
+import React from "react"
 
-import {Store} from "../store/Store"
 import Layout from "../layout/Layout"
-import PlaylistController from "../components/playlist-controller/PlaylistController"
-import PlaylistTitle from "../components/playlist-title/PlaylistTitle"
-import PlaylistCover from "../components/playlist-cover/PlaylistCover"
+import Browser from "../components/browser/Browser"
+import DetailCover from "../components/detail-cover/DetailCover"
 
-import playlists from "../configuration/playlists"
-
-const IndexPage = () => {
-  const {playlist} = useContext(Store)
-
-  const {title, image} = playlists[playlist]
-
-  return (
-    <Layout>
-      <PlaylistController />
-      <PlaylistTitle
-        title={title}
-      />
-      <PlaylistCover
-        src={image}
-        alt={`${title} cover`}
-      />
-    </Layout>
-  )
-}
+const IndexPage = () => (
+  <Layout>
+    <Browser />
+    <DetailCover />
+  </Layout>
+)
 
 export default IndexPage

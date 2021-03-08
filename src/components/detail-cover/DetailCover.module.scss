@@ -1,0 +1,85 @@
+@import "../../styles/transitions.scss";
+
+/* Detail cover */
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    position: relative;
+    display: block;
+    width: 100vmin;
+    height: 100vh;
+
+    .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      // height: 100%;
+      padding: 10rem;
+      overflow: hidden;
+
+      &.entering {
+        img {
+          animation: detailEntering;
+          animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
+        }
+      }
+
+      &.exiting {
+        img {
+          animation: detailExiting;
+          animation-timing-function: $transition-playlist;
+        }
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      @keyframes detailEntering {
+        0% {
+          // opacity: 0;
+          transform: scale(1);
+          
+        }
+
+        50% {
+          filter: url(#coverFilter);
+        }
+
+        100% {
+          transform: scale(0.75);
+          // opacity: 1;
+        }
+      }
+      
+      @keyframes detailExiting {
+        0% {
+          // opacity: 0;
+          transform: scale(0.75);
+          
+        }
+
+        50% {
+          filter: url(#coverFilter);
+        }
+
+        100% {
+          transform: scale(1);
+          // opacity: 1;
+        }
+      }
+    }
+  }
+}

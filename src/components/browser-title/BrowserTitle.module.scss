@@ -1,8 +1,7 @@
+@import "../../styles/transitions.scss";
 @import "../../styles/typography.scss";
 
-/* Playlist title */
-$animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
-
+/* Browser title */
 .title {
   position: absolute;
   top: 0;
@@ -21,12 +20,12 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
     flex-direction: column;
     justify-content: center;
 
-    &:hover {
-      .item {
+    .item {
+      &:hover {
         h2 {
           color: white;
         }
-      }
+      } 
     }
 
     .item {
@@ -39,14 +38,14 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
       &.entering {
         h2 {
           animation: titleEntering;
-          animation-timing-function: $animation-timing;
+          animation-timing-function: $transition-playlist;
         }
       }
 
       &.exiting {
         h2 {
           animation: titleExiting;
-          animation-timing-function: $animation-timing;
+          animation-timing-function: $transition-playlist;
         }
       }
     }
@@ -61,25 +60,25 @@ $animation-timing: cubic-bezier(0.645, 0.045, 0.355, 1.000);
       background-clip: text;
       white-space: nowrap;
     }
+  }
 
-    @keyframes titleEntering {
-      from {
-        transform: rotateX(90deg) translateZ(8rem);
-      }
+  @keyframes titleEntering {
+    0% {
+      transform: rotateX(90deg) translateZ(8rem);
+    }
 
-      to {
-        transform: rotateX(0) translateZ(8rem);
-      }
+    100% {
+      transform: rotateX(0) translateZ(8rem);
+    }
+  }
+  
+  @keyframes titleExiting {
+    0% {
+      transform: rotateX(0) translateZ(8rem);
     }
     
-    @keyframes titleExiting {
-      from {
-        transform: rotateX(0) translateZ(8rem);
-      }
-      
-      to {
-        transform: rotateX(-90deg) translateZ(8rem);
-      }
+    100% {
+      transform: rotateX(-90deg) translateZ(8rem);
     }
   }
 }
