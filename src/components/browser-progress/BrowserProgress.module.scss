@@ -1,0 +1,141 @@
+@import "../../styles/colors.scss";
+@import "../../styles/transitions.scss";
+@import "../../styles/typography.scss";
+
+/* Browser progress */
+.progress {
+  position: relative;
+  cursor: pointer;
+
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &.progressEntering {
+      animation: progressEntering;
+      animation-timing-function: $transition-playlist;
+    }
+
+    &.progressExiting {
+      animation: progressExiting;
+      animation-timing-function: $transition-playlist;
+    }
+
+    .value {
+      position: relative;
+  
+      .placeholder {
+        position: relative;
+        opacity: 0;
+      }
+  
+      span {
+        position: absolute;
+        top: 0;
+        color: $color-text-secondary;
+        transition: color 0.25s $transition-playlist;
+      }
+  
+      .current {
+        right: 0;
+  
+        &.valueEntering {
+          animation: progressValueEntering;
+          animation-timing-function: $transition-playlist;
+        }
+    
+        &.valueExiting {
+          animation: progressValueExiting;
+          animation-timing-function: $transition-playlist;
+        }
+      }
+  
+      .total {
+        left: 0;
+      }
+    }
+  
+    .bar {
+      position: relative;
+      width: 8rem;
+      height: 2px;
+      background: $color-text-secondary;
+      margin: 0 0.5rem;
+    }
+  
+    &.active {
+      .current {
+        color: $color-text-primary;
+      }
+  
+      .bar {
+        .fill {
+          position: absolute;
+          width: 0%;
+          height: 2px;
+          background: $color-text-primary;
+          animation: progressBar;
+        }
+      }
+    }
+  }
+
+  @keyframes progressBar {
+    0% {
+      width: 0%
+    }
+
+    100% {
+      width: 100%
+    }
+  }
+
+  @keyframes progressEntering {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes progressExiting {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    100% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+  }
+
+  @keyframes progressValueEntering {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes progressValueExiting {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    100% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
+}
