@@ -2,12 +2,12 @@ import React from "react"
 
 import Layout from "../layout/Layout"
 import Browser from "../components/browser/Browser"
-import DetailCover from "../components/detail-cover/DetailCover"
+import Preview from "../components/preview/Preview"
 
 const IndexPage = () => (
   <Layout>
     <Browser />
-    <DetailCover />
+    <Preview />
   </Layout>
 )
 

@@ -3,16 +3,15 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import {Store} from "../../store/Store"
 
-import playlists from "../../configuration/playlists"
 import {
-  TITLE_TRANSITION_SECONDS,
-  PROGRESS_DURATION_SECONDS
+  BROWSER_DURATION_SECONDS,
+  BROWSER_TRANSITION_SECONDS
 } from "../../configuration/application"
 
 import style from "./BrowserProgress.module.scss"
 
 const BrowserProgress = () => {
-  const {autoplay, setAutoplay, playlist, detail} = useContext(Store)
+  const {playlists, autoplay, setAutoplay, browser, preview} = useContext(Store)
 
   return (
     <div
@@ -21,10 +20,10 @@ const BrowserProgress = () => {
     >
       <SwitchTransition mode="in-out">
         <CSSTransition
-          key={detail}
+          key={preview}
           timeout={{
             enter: 0,
-            exit: TITLE_TRANSITION_SECONDS * 1000
+            exit: BROWSER_TRANSITION_SECONDS * 1000
           }}
           classNames={{
             enterActive: style.progressEntering,
@@ -34,19 +33,19 @@ const BrowserProgress = () => {
           }}
         >
           <>
-            {!detail && (
+            {!preview && (
               <div
                 className={`${style.container} ${autoplay ? style.active : ""}`}
-                style={{animationDuration: `${TITLE_TRANSITION_SECONDS}s`}}
+                style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
               >
                 <div className={style.value}>
                   <span className={style.placeholder}>00</span>
                   <SwitchTransition mode="in-out">
                     <CSSTransition
-                      key={playlist}
+                      key={browser}
                       timeout={{
                         enter: 0,
-                        exit: TITLE_TRANSITION_SECONDS * 1000
+                        exit: BROWSER_TRANSITION_SECONDS * 1000
                       }}
                       classNames={{
                         enterActive: style.valueEntering,
@@ -57,18 +56,18 @@ const BrowserProgress = () => {
                     >
                       <span
                         className={style.current}
-                        style={{animationDuration: `${TITLE_TRANSITION_SECONDS}s`}}
+                        style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
                       >
-                        {(playlist + 1).toString().padStart(2, '0')}
+                        {(browser + 1).toString().padStart(2, '0')}
                       </span>
                     </CSSTransition>
                   </SwitchTransition>
                 </div>
                 <div className={style.bar}>
                   <div
-                    key={playlist}
+                    key={browser}
                     className={style.fill}
-                    style={{animationDuration: `${PROGRESS_DURATION_SECONDS}s`}}
+                    style={{animationDuration: `${BROWSER_DURATION_SECONDS}s`}}
                   />
                 </div>
                 <div className={style.value}>

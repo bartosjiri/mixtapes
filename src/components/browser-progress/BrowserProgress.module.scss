@@ -15,11 +15,13 @@
     &.progressEntering {
       animation: progressEntering;
       animation-timing-function: $transition-playlist;
+      animation-fill-mode: forwards;
     }
 
     &.progressExiting {
       animation: progressExiting;
       animation-timing-function: $transition-playlist;
+      animation-fill-mode: forwards;
     }
 
     .value {
@@ -43,11 +45,13 @@
         &.valueEntering {
           animation: progressValueEntering;
           animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
         }
     
         &.valueExiting {
           animation: progressValueExiting;
           animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
         }
       }
   

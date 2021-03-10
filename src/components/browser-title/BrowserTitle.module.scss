@@ -39,6 +39,7 @@
         h2 {
           animation: titleEntering;
           animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
         }
       }
 
@@ -46,6 +47,7 @@
         h2 {
           animation: titleExiting;
           animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
         }
       }
     }

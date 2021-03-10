@@ -2,22 +2,21 @@ import {useContext, useEffect} from "react"
 
 import {Store} from "../../store/Store"
 
-import playlists from "../../configuration/playlists"
-import {PROGRESS_DURATION_SECONDS} from "../../configuration/application"
+import {BROWSER_DURATION_SECONDS} from "../../configuration/application"
 
 const BrowserController = () => {
-  const {autoplay, playlist, setPlaylist} = useContext(Store)
+  const {playlists, autoplay, browser, setBrowser} = useContext(Store)
 
   useEffect(() => {
     if (autoplay) {
       const interval = setInterval(() => {
-        playlist === playlists.length - 1
-          ? setPlaylist(0)
-          : setPlaylist(playlist + 1)
-      }, PROGRESS_DURATION_SECONDS * 1000)
+        browser === playlists.length - 1
+          ? setBrowser(0)
+          : setBrowser(browser + 1)
+      }, BROWSER_DURATION_SECONDS * 1000)
       return () => clearInterval(interval)
     }
-  }, [autoplay, playlist, setPlaylist])
+  }, [autoplay, browser, setBrowser])
 
   return null
 }

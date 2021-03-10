@@ -3,27 +3,26 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import {Store} from "../../store/Store"
 
-import {TITLE_TRANSITION_SECONDS} from "../../configuration/application"
-import playlists from "../../configuration/playlists"
+import {BROWSER_TRANSITION_SECONDS} from "../../configuration/application"
 
-import style from "./DetailCover.module.scss"
+import style from "./PreviewCover.module.scss"
 
-const DetailCover = () => {
-  const {playlist, detail} = useContext(Store)
+const PreviewCover = () => {
+  const {playlists, browser, preview} = useContext(Store)
 
-  const {image, title} = playlists[playlist]
+  const {image, title} = playlists[browser]
 
   return (
     <div className={style.cover}>
       <div className={style.container}>
         <SwitchTransition>
           <CSSTransition
-            key={detail}
+            key={preview}
             timeout={{
-              // enter: TITLE_TRANSITION_SECONDS * 1000,
+              // enter: BROWSER_TRANSITION_SECONDS * 1000,
               // exit: 0
-              enter: TITLE_TRANSITION_SECONDS * 1000,
-              exit: TITLE_TRANSITION_SECONDS * 1000
+              enter: BROWSER_TRANSITION_SECONDS * 1000,
+              exit: BROWSER_TRANSITION_SECONDS * 1000
             }}
             classNames={{
               enterActive: style.entering,
@@ -33,12 +32,12 @@ const DetailCover = () => {
             }}
           >
             <>
-              {detail && (
+              {preview && (
                 <div className={style.item}>
                   <img
                     src={`images/${image}`}
                     alt={`${title} cover`}
-                    style={{animationDuration: `${TITLE_TRANSITION_SECONDS}s`}}
+                    style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
                   />
                 </div>
               )}
@@ -50,4 +49,4 @@ const DetailCover = () => {
   )
 }
 
-export default DetailCover
+export default PreviewCover

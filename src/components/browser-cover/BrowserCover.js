@@ -3,25 +3,24 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import {Store} from "../../store/Store"
 
-import {TITLE_TRANSITION_SECONDS} from "../../configuration/application"
-import playlists from "../../configuration/playlists"
+import {BROWSER_TRANSITION_SECONDS} from "../../configuration/application"
 
 import style from "./BrowserCover.module.scss"
 
 const BrowserCover = () => {
-  const {playlist, detail} = useContext(Store)
+  const {playlists, browser, preview} = useContext(Store)
 
-  const {title, image} = playlists[playlist]
+  const {title, image} = playlists[browser]
 
   return (
     <div className={style.cover}>
       <div className={style.container}>
         <SwitchTransition mode="in-out">
           <CSSTransition
-            key={`${image}${detail}`}
+            key={`${image}${preview}`}
             timeout={{
               enter: 0,
-              exit: TITLE_TRANSITION_SECONDS * 1000
+              exit: BROWSER_TRANSITION_SECONDS * 1000
             }}
             classNames={{
               enterActive: style.entering,
@@ -31,12 +30,12 @@ const BrowserCover = () => {
             }}
           >
             <>
-              {!detail && (
+              {!preview && (
                 <div className={style.item}>
                   <img
                     src={`images/${image}`}
                     alt={`${title} cover`}
-                    style={{animationDuration: `${TITLE_TRANSITION_SECONDS}s`}}
+                    style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
                   />
                 </div>
               )}
@@ -60,7 +59,7 @@ const BrowserCover = () => {
             <animate
               attributeName="baseFrequency"
               values="0.1 0.1; 0.1 0.3"
-              dur={`${TITLE_TRANSITION_SECONDS}s`}
+              dur={`${BROWSER_TRANSITION_SECONDS}s`}
               repeatCount="indefinite"
             />
           </feTurbulence>

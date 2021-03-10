@@ -6,19 +6,18 @@ import PageVisibility from "react-page-visibility"
 import {Store} from "../../store/Store"
 
 import {
-  TITLE_SCROLL_SPEED,
-  TITLE_TRANSITION_SECONDS
+  BROWSER_SCROLL_SPEED,
+  BROWSER_TRANSITION_SECONDS
 } from "../../configuration/application"
-import playlists from "../../configuration/playlists"
 
 import style from "./BrowserTitle.module.scss"
 
 const BrowserTitle = () => {
-  const {playlist, detail, setDetail} = useContext(Store)
-  const {title} = playlists[playlist]
+  const {playlists, browser, preview, setPreview} = useContext(Store)
+  const {title} = playlists[browser]
 
   const handleClick = () => {
-    if (!detail) setDetail(true)
+    if (!preview) setPreview(true)
   }
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
@@ -33,10 +32,10 @@ const BrowserTitle = () => {
           {pageIsVisible && (
             <SwitchTransition mode="in-out">
               <CSSTransition
-                key={`${title}${detail}`}
+                key={`${title}${preview}`}
                 timeout={{
                   enter: 0,
-                  exit: TITLE_TRANSITION_SECONDS * 1000
+                  exit: BROWSER_TRANSITION_SECONDS * 1000
                 }}
                 classNames={{
                   enterActive: style.entering,
@@ -46,17 +45,17 @@ const BrowserTitle = () => {
                 }}
               >
                 <>
-                  {!detail && (
+                  {!preview && (
                     <div
                       className={style.item}
                       onClick={() => handleClick()}
                     >
                       <Ticker
                         mode="chain"
-                        speed={TITLE_SCROLL_SPEED}
+                        speed={BROWSER_SCROLL_SPEED}
                       >
                         {() => (
-                          <h2 style={{animationDuration: `${TITLE_TRANSITION_SECONDS}s`}}>
+                          <h2 style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>
                             {title}
                           </h2>
                         )}

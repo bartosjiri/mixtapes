@@ -1,6 +1,6 @@
 @import "../../styles/transitions.scss";
 
-/* Detail cover */
+/* Preview cover */
 .cover {
   position: absolute;
   top: 0;
@@ -39,6 +39,7 @@
         img {
           animation: detailExiting;
           animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
         }
       }
 
