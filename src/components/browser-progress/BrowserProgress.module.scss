@@ -1,4 +1,5 @@
 @import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
 @import "../../styles/transitions.scss";
 @import "../../styles/typography.scss";
 
@@ -29,12 +30,14 @@
   
       .placeholder {
         position: relative;
+        @include fluid(font-size, 14, 16);
         opacity: 0;
       }
   
       span {
         position: absolute;
         top: 0;
+        @include fluid(font-size, 14, 16);
         color: $color-text-secondary;
         transition: color 0.25s $transition-playlist;
       }
@@ -62,7 +65,7 @@
   
     .bar {
       position: relative;
-      width: 8rem;
+      @include fluid(width, 50, 80);
       height: 2px;
       background: $color-text-secondary;
       margin: 0 0.5rem;

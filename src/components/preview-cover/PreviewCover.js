@@ -33,7 +33,7 @@ const PreviewCover = () => {
           >
             <>
               {preview && (
-                <div className={style.item}>
+                <div className={style.image}>
                   <img
                     src={`images/${image}`}
                     alt={`${title} cover`}

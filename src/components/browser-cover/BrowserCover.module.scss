@@ -1,8 +1,9 @@
+@import "../../styles/fluid.scss";
 @import "../../styles/transitions.scss";
 
 /* Browser cover */
 .cover {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -14,7 +15,6 @@
 
   .container {
     position: relative;
-    display: block;
     width: 100vmin;
     height: 100vh;
 
@@ -23,13 +23,16 @@
       top: 0;
       left: 0;
       right: 0;
-      // height: 100%;
-      padding: 10rem;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include fluid(padding, 40, 100);
       overflow: hidden;
 
       &.entering {
         img {
-          animation: coverEntering;
+          animation: browserCoverEntering;
           animation-timing-function: $transition-playlist;
           animation-fill-mode: forwards;
         }
@@ -37,7 +40,7 @@
 
       &.exiting {
         img {
-          animation: coverExiting;
+          animation: browserCoverExiting;
           animation-timing-function: $transition-playlist;
           animation-fill-mode: forwards;
         }
@@ -48,7 +51,7 @@
         width: 100%;
       }
 
-      @keyframes coverEntering {
+      @keyframes browserCoverEntering {
         0% {
           opacity: 0;
           transform: translateY(-10%);
@@ -61,7 +64,7 @@
         }
       }
       
-      @keyframes coverExiting {
+      @keyframes browserCoverExiting {
         0% {
           opacity: 1;
         }

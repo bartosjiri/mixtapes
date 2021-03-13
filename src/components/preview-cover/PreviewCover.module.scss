@@ -1,8 +1,9 @@
+@import "../../styles/fluid.scss";
 @import "../../styles/transitions.scss";
 
 /* Preview cover */
 .cover {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -14,22 +15,29 @@
 
   .container {
     position: relative;
-    display: block;
     width: 100vmin;
     height: 100vh;
 
-    .item {
+    .image {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      // height: 100%;
-      padding: 10rem;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include fluid(padding, 40, 100);
       overflow: hidden;
 
+      img {
+        display: block;
+        width: 100%;
+      }
+      
       &.entering {
         img {
-          animation: detailEntering;
+          animation: previewCoverEntering;
           animation-timing-function: $transition-playlist;
           animation-fill-mode: forwards;
         }
@@ -37,18 +45,13 @@
 
       &.exiting {
         img {
-          animation: detailExiting;
+          animation: previewCoverExiting;
           animation-timing-function: $transition-playlist;
           animation-fill-mode: forwards;
         }
       }
 
-      img {
-        display: block;
-        width: 100%;
-      }
-
-      @keyframes detailEntering {
+      @keyframes previewCoverEntering {
         0% {
           // opacity: 0;
           transform: scale(1);
@@ -65,20 +68,17 @@
         }
       }
       
-      @keyframes detailExiting {
+      @keyframes previewCoverExiting {
         0% {
-          // opacity: 0;
+          opacity: 1;
           transform: scale(0.75);
           
         }
 
-        50% {
-          filter: url(#coverFilter);
-        }
-
         100% {
-          transform: scale(1);
-          // opacity: 1;
+          // transform: scale(1);
+          opacity: 0;
+          transform: scale(0.75);
         }
       }
     }

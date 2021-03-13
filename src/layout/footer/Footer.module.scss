@@ -1,13 +1,18 @@
+@import "../../styles/fluid.scss";
+
 /* Footer */
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr;
-  padding: 3rem 6rem;
+  @include fluid(padding-top, 15, 30);
+  @include fluid(padding-bottom, 15, 30);
+  @include fluid(padding-left, 20, 60);
+  @include fluid(padding-right, 20, 60);
   z-index: 200;
 
   .progress {

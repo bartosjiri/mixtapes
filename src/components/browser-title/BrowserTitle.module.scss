@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
 @import "../../styles/transitions.scss";
 @import "../../styles/typography.scss";
 
@@ -23,7 +25,7 @@
     .item {
       &:hover {
         h2 {
-          color: white;
+          color: $color-text-primary;
         }
       } 
     }
@@ -37,7 +39,7 @@
 
       &.entering {
         h2 {
-          animation: titleEntering;
+          animation: browserTitleEntering;
           animation-timing-function: $transition-playlist;
           animation-fill-mode: forwards;
         }
@@ -45,7 +47,7 @@
 
       &.exiting {
         h2 {
-          animation: titleExiting;
+          animation: browserTitleExiting;
           animation-timing-function: $transition-playlist;
           animation-fill-mode: forwards;
         }
@@ -54,17 +56,18 @@
 
     h2 {
       @include typography-font-secondary;
-      font-size: 16rem;
+      @include fluid(font-size, 80, 160);
       color: transparent;
-      -webkit-text-stroke: 3px white;
-      padding: 0 25rem 0 1rem;
+      -webkit-text-stroke: 3px $color-text-primary;
+      padding-right: 1rem;
+      @include fluid(padding-right, 125, 250);
       background: inherit;
       background-clip: text;
       white-space: nowrap;
     }
   }
 
-  @keyframes titleEntering {
+  @keyframes browserTitleEntering {
     0% {
       transform: rotateX(90deg) translateZ(8rem);
     }
@@ -74,7 +77,7 @@
     }
   }
   
-  @keyframes titleExiting {
+  @keyframes browserTitleExiting {
     0% {
       transform: rotateX(0) translateZ(8rem);
     }
