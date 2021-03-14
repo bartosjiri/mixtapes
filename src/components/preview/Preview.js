@@ -1,11 +1,12 @@
 import React from "react"
 
 import PreviewCover from "../preview-cover/PreviewCover"
-// import PreviewTitle from "../preview-title/PreviewTitle"
+import PreviewText from "../preview-text/PreviewText"
 
 const Preview = () => (
   <>
     <PreviewCover />
+    <PreviewText />
   </>
 )
 

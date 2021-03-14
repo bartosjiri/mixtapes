@@ -12,29 +12,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // overflow: hidden;
 
   .container {
     position: relative;
     width: 100vmin;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       @include fluid(padding, 40, 100);
-      overflow: hidden;
 
       img {
         display: block;
         width: 100%;
       }
-      
+
       &.entering {
         img {
           animation: previewCoverEntering;
@@ -50,37 +49,34 @@
           animation-fill-mode: forwards;
         }
       }
+    }
+  }
 
-      @keyframes previewCoverEntering {
-        0% {
-          // opacity: 0;
-          transform: scale(1);
-          
-        }
-
-        50% {
-          filter: url(#coverFilter);
-        }
-
-        100% {
-          transform: scale(0.75);
-          // opacity: 1;
-        }
-      }
+  @keyframes previewCoverEntering {
+    0% {
+      transform: scale(1);
       
-      @keyframes previewCoverExiting {
-        0% {
-          opacity: 1;
-          transform: scale(0.75);
-          
-        }
+    }
 
-        100% {
-          // transform: scale(1);
-          opacity: 0;
-          transform: scale(0.75);
-        }
-      }
+    50% {
+      filter: url(#coverFilter);
+    }
+
+    100% {
+      transform: scale(0.75);
+    }
+  }
+  
+  @keyframes previewCoverExiting {
+    0% {
+      opacity: 1;
+      transform: scale(0.75);
+      
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(0.75);
     }
   }
 }
