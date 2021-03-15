@@ -13,7 +13,12 @@ import {
 import style from "./BrowserTitle.module.scss"
 
 const BrowserTitle = () => {
-  const {playlists, browser, preview, setPreview} = useContext(Store)
+  // const {playlists, browser, preview, setPreview} = useContext(Store)
+
+  // @DEBUG:
+  const {setCursor, playlists, browser, preview, setPreview} = useContext(Store)
+
+
   const {title} = playlists[browser]
 
   const handleClick = () => {
@@ -49,6 +54,11 @@ const BrowserTitle = () => {
                     <div
                       className={style.item}
                       onClick={() => handleClick()}
+
+                      // @DEBUG:
+                      onMouseEnter={() => setCursor(1)}
+                      onMouseLeave={() => setCursor(0)}
+
                     >
                       <Ticker
                         mode="chain"

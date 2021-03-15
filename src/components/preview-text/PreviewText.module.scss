@@ -18,35 +18,21 @@
 
   .container {
     position: relative;
-    width: 100vmin;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  // overflow: hidden;
+    @include fluid(padding-left, 30, 520);
+    @include fluid(padding-right, 30, 520);
 
-    .wrapper {
-      position: relative;
-      height: 100vmin;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @include fluid(margin, 40, 100);
-      transform: scale(0.75);
+
 
       .content {
-        position: absolute;
-        // @include fluid(bottom, -50, -120);
-        // @include fluid(bottom, -10, -180);
-        bottom: -22.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 75vw;
+
+        height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         
-        @include fluid(padding-bottom, 40, 100);
+        // @include fluid(padding-bottom, 40, 100);
           
         .title {
           position: relative;
@@ -79,7 +65,7 @@
           display: flex;
           justify-content: center;
           @include fluid(margin-top, 20, 40);
-          overflow: hidden;
+          // overflow: hidden;
 
           span {
             @include fluid(font-size, 16, 22);
@@ -93,13 +79,15 @@
 
         .artists {
           text-align: center;
-          // @include fluid(margin-top, 20, 40);
-          @include fluid(margin-top, 10, 20);
-          overflow: hidden;
+          @include fluid(margin-top, 20, 40);
+          // @include fluid(margin-top, 10, 20);
+          // overflow: hidden;
 
           span {
-            @include fluid(font-size, 16, 22);
-            @include fluid(margin-right, 30, 60);
+            display: inline-block;
+            @include fluid(font-size, 16, 18);
+            // @include fluid(margin-right, 30, 60);
+            @include fluid(margin-right, 25, 50);
 
             &:last-of-type {
               margin-right: 0;
@@ -134,7 +122,7 @@
             animation: previewTextEntering;
             animation-fill-mode: forwards;
             animation-delay: 0.3s;
-            transform: translateY(20rem);
+            transform: translateY(10rem);
             opacity: 0;
           }
         }
@@ -154,7 +142,6 @@
           }
         }
       }
-    }
   }
 
   @keyframes previewTitleEntering {
@@ -182,7 +169,7 @@
 
   @keyframes previewTextEntering {
     0% {
-      transform: translateY(20rem);
+      transform: translateY(10rem);
       opacity: 0;
     }
 

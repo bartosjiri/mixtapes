@@ -55,7 +55,6 @@
   @keyframes previewCoverEntering {
     0% {
       transform: scale(1);
-      
     }
 
     50% {
@@ -64,14 +63,14 @@
 
     100% {
       transform: scale(0.75);
+      opacity: 0.33;
     }
   }
   
   @keyframes previewCoverExiting {
     0% {
-      opacity: 1;
       transform: scale(0.75);
-      
+      opacity: 0.33;
     }
 
     100% {

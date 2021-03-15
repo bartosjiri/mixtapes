@@ -5,6 +5,8 @@ import Head from '../util/head/Head'
 import Header from './header/Header'
 import Footer from './footer/Footer'
 
+import Cursor from "../components/cursor/Cursor"
+
 const Layout = ({
   title, children, ...props
 }) => (
@@ -15,6 +17,7 @@ const Layout = ({
       {children}
     </main>
     <Footer />
+    <Cursor />
   </>
 )
 
