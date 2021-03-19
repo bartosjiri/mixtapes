@@ -1,0 +1,11 @@
+@import "../../styles/fluid.scss";
+
+/* Bartosjiri logo */
+.logo {
+  display: flex;
+
+  svg {
+    @include fluid(height, 20, 34);
+    fill: #fb4248;
+  } 
+}
