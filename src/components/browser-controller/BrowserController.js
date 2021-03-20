@@ -2,10 +2,11 @@ import {useContext, useEffect} from "react"
 
 import {Store} from "../../store/Store"
 
+import playlists from "../../configuration/playlists"
 import {BROWSER_DURATION_SECONDS} from "../../configuration/application"
 
 const BrowserController = () => {
-  const {playlists, autoplay, browser, setBrowser} = useContext(Store)
+  const {autoplay, browser, setBrowser} = useContext(Store)
 
   useEffect(() => {
     if (autoplay) {

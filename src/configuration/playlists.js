@@ -1,6 +1,6 @@
 const playlists = [
   {
-    id: 1,
+    url: "https://open.spotify.com/playlist/1Xs4mQitJAjYDUaJX3Cphu?si=IgG2h0C5Sia4JsdS3z9b3Q",
     title: "Náhodné seskupení rostlin",
     image: "cover1.jpg",
     genre: "Indie",
@@ -19,7 +19,7 @@ const playlists = [
     ]
   },
   {
-    id: 2,
+    url: "https://open.spotify.com/playlist/68TJszBgng5YP9WX2Q4b6F?si=XyPIw1iVRAK4VBNRPNA9Iw",
     title: "Drive-by",
     image: "cover2.jpg",
     genre: "Rap & Hip-hop",
@@ -38,7 +38,7 @@ const playlists = [
     ]
   },
   {
-    id: 3,
+    url: "https://open.spotify.com/playlist/3ir9q6YFLiZsiviC112TUa?si=F92owvSNQMCJzbMpvl4ZCA",
     title: "Walkman & Rollerblades",
     image: "cover3.jpg",
     genre: "80's Pop",
@@ -57,7 +57,7 @@ const playlists = [
     ]
   },
   {
-    id: 4,
+    url: "https://open.spotify.com/playlist/1OY4LppftzXqXF1pNqqEir?si=0ULlWROZQdew7knCR9GQGQ",
     title: "VHS Dreams",
     image: "cover4.jpg",
     genre: "Retrowave",
@@ -76,7 +76,7 @@ const playlists = [
     ]
   },
   {
-    id: 5,
+    url: "https://open.spotify.com/playlist/3uWiCnd0AUr3oYvTDJXkuI?si=52LGRPcVRGCuV882O9gx1Q",
     title: "The MTV Generation",
     image: "cover5.jpg",
     genre: "2000's Pop",

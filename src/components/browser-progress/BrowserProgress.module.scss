@@ -12,6 +12,8 @@
     position: relative;
     display: flex;
     align-items: center;
+    @include fluid(padding, 25, 50);
+    @include fluid(margin, -25, -50);
 
     &.progressEntering {
       animation: progressEntering;

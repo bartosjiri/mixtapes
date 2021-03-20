@@ -3,20 +3,27 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import {Store} from "../../store/Store"
 
+import playlists from "../../configuration/playlists"
 import {
   BROWSER_DURATION_SECONDS,
   BROWSER_TRANSITION_SECONDS
 } from "../../configuration/application"
+import cursors from "../cursor/cursors"
 
 import style from "./BrowserProgress.module.scss"
 
 const BrowserProgress = () => {
-  const {playlists, autoplay, setAutoplay, browser, preview} = useContext(Store)
+  const {setCursor, autoplay, setAutoplay, browser, preview} = useContext(Store)
 
   return (
     <div
       className={style.progress}
-      onClick={() => setAutoplay(!autoplay)}
+      onClick={() => {
+        setAutoplay(!autoplay)
+        setCursor(autoplay ? cursors.play : cursors.pause)
+      }}
+      onMouseEnter={() => setCursor(autoplay ? cursors.pause : cursors.play)}
+      onMouseLeave={() => setCursor(cursors.default)}
     >
       <SwitchTransition mode="in-out">
         <CSSTransition

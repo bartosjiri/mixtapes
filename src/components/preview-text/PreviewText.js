@@ -3,17 +3,23 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import {Store} from "../../store/Store"
 
+import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../configuration/application"
+import cursors from "../cursor/cursors"
 
 import style from "./PreviewText.module.scss"
 
 const PreviewText = () => {
-  const {playlists, browser, preview} = useContext(Store)
+  const {setCursor, browser, preview, setPreview} = useContext(Store)
 
-  const {title, genre, tracks, artists} = playlists[browser]
+  const {url, title, genre, tracks, artists} = playlists[browser]
 
   return (
-    <div className={style.text}>
+    <div
+      className={`${style.text} ${preview ? style.active : ""}`}
+      onClick={() => setPreview(false)}
+      onMouseEnter={() => setCursor(cursors.cross)}
+    >
       <div className={style.container}>
         <SwitchTransition>
           <CSSTransition
@@ -33,7 +39,13 @@ const PreviewText = () => {
           >
             <>
               {preview && (
-                <div className={style.content}>
+                <a
+                  className={style.content}
+                  href={url}
+                  target="_blank"
+                  onMouseEnter={() => setCursor(cursors.play)}
+                  onMouseLeave={() => setCursor(cursors.cross)}
+                >
                   <div className={style.title}>
                     <div className={style.placeholder}>{title}</div>
                     <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>
@@ -56,7 +68,7 @@ const PreviewText = () => {
                       <span key={a}>{a}</span>
                     ))}
                   </div>
-                </div>
+                </a>
               )}
             </>
           </CSSTransition>

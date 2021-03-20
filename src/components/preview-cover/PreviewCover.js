@@ -3,12 +3,13 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import {Store} from "../../store/Store"
 
+import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../configuration/application"
 
 import style from "./PreviewCover.module.scss"
 
 const PreviewCover = () => {
-  const {playlists, browser, preview} = useContext(Store)
+  const {browser, preview} = useContext(Store)
 
   const {image, title} = playlists[browser]
 

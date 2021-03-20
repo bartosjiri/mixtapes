@@ -5,33 +5,33 @@ import PageVisibility from "react-page-visibility"
 
 import {Store} from "../../store/Store"
 
+import playlists from "../../configuration/playlists"
 import {
   BROWSER_SCROLL_SPEED,
   BROWSER_TRANSITION_SECONDS
 } from "../../configuration/application"
+import cursors from "../cursor/cursors"
 
 import style from "./BrowserTitle.module.scss"
 
 const BrowserTitle = () => {
-  // const {playlists, browser, preview, setPreview} = useContext(Store)
-
-  // @DEBUG:
-  const {setCursor, playlists, browser, preview, setPreview} = useContext(Store)
-
-
+  const {setCursor, browser, preview, setPreview} = useContext(Store)
   const {title} = playlists[browser]
-
-  const handleClick = () => {
-    if (!preview) setPreview(true)
-  }
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
   const handleVisibilityChange = (isVisible) => {
     setPageIsVisible(isVisible)
   }
 
+  const handleClick = () => {
+    if (!preview) setPreview(true)
+  }
+
   return (
-    <div className={style.title}>
+    <div
+      className={style.title}
+      onMouseEnter={() => setCursor(cursors.default)}
+    >
       <div className={style.container}>
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && (
@@ -54,11 +54,8 @@ const BrowserTitle = () => {
                     <div
                       className={style.item}
                       onClick={() => handleClick()}
-
-                      // @DEBUG:
-                      onMouseEnter={() => setCursor(1)}
-                      onMouseLeave={() => setCursor(0)}
-
+                      onMouseEnter={() => setCursor(cursors.up)}
+                      onMouseLeave={() => setCursor(cursors.default)}
                     >
                       <Ticker
                         mode="chain"
