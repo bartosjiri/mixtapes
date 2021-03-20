@@ -4,6 +4,8 @@ import {Store} from "../../store/Store"
 
 import useMousePosition from "./useMousePosition"
 
+import {GENERAL_TRANSITION_SECONDS} from "../../configuration/application"
+
 import style from "./Cursor.module.scss"
 
 const Cursor = () => {
@@ -14,26 +16,16 @@ const Cursor = () => {
   return (
     <div className={style.cursor}>
       <div
-        // @DEBUG:
-        className={`${style.container} ${cursor ? style.chevron : style.cross}`}
-
+        className={`${style.cursor_shape} ${cursor}`}
         style={{
           top: clientY,
-          left: clientX
+          left: clientX,
         }}
-      />
+      >
+        <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} />
+        <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} />
+      </div>
 
-      {/* @TODO: Alternative */}
-      {/* <svg>
-        <defs>
-          <clipPath id="cursorCross" clipPathUnits="objectBoundingBox">
-            <polygon points="302.500 0.000, 302.500 197.500, 500.000 197.500, 500.000 302.500, 302.500 302.500, 302.500 500.000, 197.500 500.000, 197.500 302.500, 0.000 302.500, 0.000 197.500, 197.500 197.500, 197.500 0.000, 302.500 0.000" />
-          </clipPath>
-          <clipPath id="cursorChevron" clipPathUnits="objectBoundingBox">
-            <polygon points="406.500 92.000, 407.000 92.000, 407.000 92.500, 407.000 196.500, 407.000 197.000, 407.000 500.000, 302.000 500.000, 302.000 197.000, 0.000 197.000, 0.000 92.000, 302.000 92.000, 302.500 92.000, 406.500 92.000" />
-          </clipPath>
-        </defs>
-      </svg> */}
     </div>
   )
 }

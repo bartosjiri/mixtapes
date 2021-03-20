@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 const useMousePosition = () => {
   // @TODO: Hide when out of window
   // @TODO: Disable for mobile
+  // @TODO: Implement requestAnimationFrame?
 
   const [position, setPosition] = useState({
     clientX: 0,
