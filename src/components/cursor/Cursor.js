@@ -11,7 +11,11 @@ import style from "./Cursor.module.scss"
 const Cursor = () => {
   const {cursor} = useContext(Store)
 
-  const {clientX, clientY} = useMousePosition()
+  const {clientX, clientY, inWindow, isTouch} = useMousePosition()
+
+  if (isTouch) {
+    return null
+  }
 
   return (
     <div className={style.cursor}>
@@ -20,12 +24,12 @@ const Cursor = () => {
         style={{
           top: clientY,
           left: clientX,
+          opacity: inWindow ? 1 : 0
         }}
       >
         <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} />
         <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} />
       </div>
-
     </div>
   )
 }
