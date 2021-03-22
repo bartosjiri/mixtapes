@@ -14,6 +14,8 @@ const BartosjiriLogo = () => {
     <a
       className={style.logo}
       href="https://bartosjiri.com"
+      target="_blank"
+      rel="noreferrer noopener"
       onMouseEnter={() => setCursor(cursors.up)}
       onMouseLeave={() => setCursor(cursors.default)}
     >

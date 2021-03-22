@@ -43,6 +43,7 @@ const PreviewText = () => {
                   className={style.content}
                   href={url}
                   target="_blank"
+                  rel="noreferrer noopener"
                   onMouseEnter={() => setCursor(cursors.play)}
                   onMouseLeave={() => setCursor(cursors.cross)}
                 >

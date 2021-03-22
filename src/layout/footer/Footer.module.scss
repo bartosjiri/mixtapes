@@ -8,6 +8,7 @@
   right: 0;
   display: grid;
   justify-content: space-between;
+  align-items: center;
   grid-template-columns: 1fr 1fr;
   @include fluid(padding-top, 15, 30);
   @include fluid(padding-bottom, 15, 30);
@@ -19,7 +20,7 @@
     justify-self: start;
   }
 
-  // .undefined {
-  //   justify-self: end;
-  // }
+  .spotify {
+    justify-self: end;
+  }
 }

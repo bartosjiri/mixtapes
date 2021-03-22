@@ -28,7 +28,7 @@ const Cursor = () => {
         }}
       >
         <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} />
-        <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} />
+        {/* <span style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}} /> */}
       </div>
     </div>
   )
