@@ -1,27 +1,27 @@
 const playlists = [
   {
-    url: "https://open.spotify.com/playlist/1Xs4mQitJAjYDUaJX3Cphu?si=IgG2h0C5Sia4JsdS3z9b3Q",
-    title: "Náhodné seskupení rostlin",
-    image: "cover1.jpg",
-    genre: "Indie",
-    tracks: 37,
+    url: "https://open.spotify.com/playlist/4P7X2ikiccvt9TzkgFTJgw",
+    title: "Lelekovo Drum & Bass",
+    image: "cover_lelekovo-drum-and-bass.jpg",
+    genre: "Drum & Bass",
+    tracks: 2135,
     artists: [
-      "Bert and Friends",
-      "něco něco",
-      "Ille",
-      "Good Times Only",
-      "Neřvi mi do ucha",
-      "Dukla",
-      "Čáry života",
-      "Zrní",
-      "Člověk krve",
-      "MIDI Lidi"
+      "Dimension",
+      "Wilkinson",
+      "Sub Focus",
+      "Netsky",
+      "Culture Shock",
+      "Cyantific",
+      "The Prototypes",
+      "S.P.Y",
+      "Black Sun Empire",
+      "Tantrum Desire"
     ]
   },
   {
-    url: "https://open.spotify.com/playlist/68TJszBgng5YP9WX2Q4b6F?si=XyPIw1iVRAK4VBNRPNA9Iw",
+    url: "https://open.spotify.com/playlist/68TJszBgng5YP9WX2Q4b6F",
     title: "Drive-by",
-    image: "cover2.jpg",
+    image: "cover_drive-by.jpg",
     genre: "Rap & Hip-hop",
     tracks: 132,
     artists: [
@@ -38,9 +38,9 @@ const playlists = [
     ]
   },
   {
-    url: "https://open.spotify.com/playlist/3ir9q6YFLiZsiviC112TUa?si=F92owvSNQMCJzbMpvl4ZCA",
+    url: "https://open.spotify.com/playlist/3ir9q6YFLiZsiviC112TUa",
     title: "Walkman & Rollerblades",
-    image: "cover3.jpg",
+    image: "cover_walkman-and-rollerblades.jpg",
     genre: "80's Pop",
     tracks: 44,
     artists: [
@@ -57,9 +57,9 @@ const playlists = [
     ]
   },
   {
-    url: "https://open.spotify.com/playlist/1OY4LppftzXqXF1pNqqEir?si=0ULlWROZQdew7knCR9GQGQ",
+    url: "https://open.spotify.com/playlist/1OY4LppftzXqXF1pNqqEir",
     title: "VHS Dreams",
-    image: "cover4.jpg",
+    image: "cover_vhs-dreams.jpg",
     genre: "Retrowave",
     tracks: 28,
     artists: [
@@ -76,7 +76,7 @@ const playlists = [
     ]
   },
   {
-    url: "https://open.spotify.com/playlist/3uWiCnd0AUr3oYvTDJXkuI?si=52LGRPcVRGCuV882O9gx1Q",
+    url: "https://open.spotify.com/playlist/3uWiCnd0AUr3oYvTDJXkuI",
     title: "The MTV Generation",
     image: "cover5.jpg",
     genre: "2000's Pop",
