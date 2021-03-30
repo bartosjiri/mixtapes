@@ -16,11 +16,10 @@ const SpotifyLink = () => {
       href="https://open.spotify.com/user/21gi2l2todfet7ujsdtofnn5y"
       target="_blank"
       rel="noreferrer noopener"
-      onMouseEnter={() => setCursor(cursors.up)}
+      onMouseEnter={() => setCursor(cursors.arrow)}
       onMouseLeave={() => setCursor(cursors.default)}
     >
       <svg
-        version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 427.652 427.652"
         style={{transitionDuration: `${GENERAL_TRANSITION_SECONDS}s`}}

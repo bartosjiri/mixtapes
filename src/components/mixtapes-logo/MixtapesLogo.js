@@ -18,7 +18,7 @@ const MixtapesLogo = () => {
     <h1
       className={style.logo}
       onClick={() => handleClick()}
-      onMouseEnter={() => setCursor(cursors.up)}
+      onMouseEnter={() => setCursor(cursors.arrow)}
       onMouseLeave={() => setCursor(cursors.default)}
     >
       Mixtapes

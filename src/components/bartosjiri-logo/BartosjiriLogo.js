@@ -16,7 +16,7 @@ const BartosjiriLogo = () => {
       href="https://bartosjiri.com"
       target="_blank"
       rel="noreferrer noopener"
-      onMouseEnter={() => setCursor(cursors.up)}
+      onMouseEnter={() => setCursor(cursors.arrow)}
       onMouseLeave={() => setCursor(cursors.default)}
     >
       <svg

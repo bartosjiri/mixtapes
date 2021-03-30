@@ -54,7 +54,7 @@ const BrowserTitle = () => {
                     <div
                       className={style.item}
                       onClick={() => handleClick()}
-                      onMouseEnter={() => setCursor(cursors.up)}
+                      onMouseEnter={() => setCursor(cursors.enter)}
                       onMouseLeave={() => setCursor(cursors.default)}
                     >
                       <Ticker
