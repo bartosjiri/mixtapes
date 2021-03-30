@@ -8,11 +8,13 @@ import style from "./Header.module.scss"
 const Header = () => {
   return (
     <header className={style.header}>
-      <div className={style.logo}>
-        <MixtapesLogo />
-      </div>
-      <div className={style.author}>
-        <BartosjiriLogo />
+      <div className={style.container}>
+        <div className={style.logo}>
+          <MixtapesLogo />
+        </div>
+        <div className={style.author}>
+          <BartosjiriLogo />
+        </div>
       </div>
     </header>
   )

@@ -15,18 +15,6 @@
     @include fluid(padding, 25, 50);
     @include fluid(margin, -25, -50);
 
-    &.progressEntering {
-      animation: progressEntering;
-      animation-timing-function: $transition-playlist;
-      animation-fill-mode: forwards;
-    }
-
-    &.progressExiting {
-      animation: progressExiting;
-      animation-timing-function: $transition-playlist;
-      animation-fill-mode: forwards;
-    }
-
     .value {
       position: relative;
   
@@ -97,30 +85,6 @@
 
     100% {
       width: 100%
-    }
-  }
-
-  @keyframes progressEntering {
-    0% {
-      opacity: 0;
-      transform: translateY(-50%);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes progressExiting {
-    0% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    100% {
-      opacity: 0;
-      transform: translateY(50%);
     }
   }
 
