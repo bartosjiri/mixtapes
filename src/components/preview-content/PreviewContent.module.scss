@@ -1,0 +1,205 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
+@import "../../styles/typography.scss";
+
+/* Preview content */
+.content {
+  // position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // overflow: hidden;
+
+  &.active {
+    z-index: 100;
+  }
+
+  .container {
+    position: relative;
+    // height: 100vh;
+    @include fluid(padding-left, 30, 520);
+    @include fluid(padding-right, 30, 520);
+
+      .wrapper {
+        position: relative;
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: inherit;
+        z-index: 100;
+          
+        .title {
+          position: relative;
+          display: flex;
+
+          span,
+          .placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            @include typography-font-secondary;
+            @include fluid(font-size, 50, 100);
+            line-height: 1;
+            text-align: center;
+            color: transparent;
+            // -webkit-text-stroke: 1px $color-text-primary;
+            -webkit-text-stroke: 0.5px $color-text-primary;
+          }
+
+          span {
+            &:first-of-type {
+              color: rgba($color-background-primary, 0.66);
+            }
+          }
+
+          .placeholder {
+            position: relative;
+            opacity: 0;
+          }
+        }
+
+        .info {
+          display: flex;
+          justify-content: center;
+          @include fluid(margin-top, 20, 40);
+          // overflow: hidden;
+
+          span {
+            @include fluid(font-size, 16, 22);
+            @include fluid(margin-right, 40, 80);
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+        }
+
+        .artists {
+          text-align: center;
+          @include fluid(margin-top, 20, 40);
+          // @include fluid(margin-top, 10, 20);
+          // overflow: hidden;
+
+          span {
+            display: inline-block;
+            @include fluid(font-size, 16, 18);
+            // @include fluid(margin-right, 30, 60);
+            @include fluid(margin-right, 25, 50);
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+        }
+
+        .actions {
+          @include fluid(margin-top, 20, 40);
+        }
+
+        &.entering {
+          .title {
+            span {
+              animation: previewTitleEntering;
+              animation-fill-mode: forwards;
+              transform: translateY(20rem);
+              opacity: 0;
+
+              &:nth-child(2) {
+                animation-delay: 0.1s;
+              }
+    
+              &:nth-child(3) {
+                animation-delay: 0.2s;
+              }
+    
+              &:nth-child(4) {
+                animation-delay: 0.3s;
+              }
+            }
+          }
+
+          .info,
+          .artists,
+          .actions {
+            animation: previewTextEntering;
+            animation-fill-mode: forwards;
+            animation-delay: 0.3s;
+            transform: translateY(10rem);
+            opacity: 0;
+          }
+        }
+    
+        &.exiting {
+          .title {
+            span {
+              animation: previewTitleExiting;
+              animation-fill-mode: forwards;
+            }
+          }
+          
+          .info,
+          .artists,
+          .actions {
+            animation: previewTextExiting;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+  }
+
+  @keyframes previewTitleEntering {
+    0% {
+      transform: translateY(20rem);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes previewTitleExiting {
+    0% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes previewTextEntering {
+    0% {
+      transform: translateY(10rem);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes previewTextExiting {
+    0% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+}
