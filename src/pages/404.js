@@ -7,9 +7,7 @@ const NotFoundPage = () => {
   }, [])
 
 
-  return (
-    <p>@TODO</p>
-  )
+  return null
 }
 
 export default NotFoundPage

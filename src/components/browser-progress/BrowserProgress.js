@@ -13,16 +13,29 @@ import cursors from "../cursor/cursors"
 import style from "./BrowserProgress.module.scss"
 
 const BrowserProgress = () => {
-  const {setCursor, autoplay, setAutoplay, browser} = useContext(Store)
+  const {setCursor, autoplay, setAutoplay, browser, setPreview, preview} = useContext(Store)
+
+  const handleClick = () => {
+    if (preview) {
+      setPreview(false)
+      return setCursor(cursors.pause)
+    }
+    setCursor(autoplay ? cursors.play : cursors.pause)
+    setAutoplay(!autoplay)
+  }
+
+  const handleMouseEnter = () => {
+    if (preview) {
+      return setCursor(cursors.play)
+    }
+    setCursor(autoplay ? cursors.pause : cursors.play)
+  }
 
   return (
     <div
       className={style.progress}
-      onClick={() => {
-        setAutoplay(!autoplay)
-        setCursor(autoplay ? cursors.play : cursors.pause)
-      }}
-      onMouseEnter={() => setCursor(autoplay ? cursors.pause : cursors.play)}
+      onClick={() => handleClick()}
+      onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => setCursor(cursors.default)}
     >
       <div

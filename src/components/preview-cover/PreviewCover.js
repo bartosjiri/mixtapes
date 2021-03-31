@@ -18,10 +18,8 @@ const PreviewCover = () => {
       <div className={style.container}>
         <SwitchTransition>
           <CSSTransition
-            key={preview}
+            key={`${browser}${preview}`}
             timeout={{
-              // enter: BROWSER_TRANSITION_SECONDS * 1000,
-              // exit: 0
               enter: BROWSER_TRANSITION_SECONDS * 1000,
               exit: BROWSER_TRANSITION_SECONDS * 1000
             }}

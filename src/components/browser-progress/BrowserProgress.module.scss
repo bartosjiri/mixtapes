@@ -6,7 +6,7 @@
 /* Browser progress */
 .progress {
   position: relative;
-  cursor: pointer;
+  pointer-events: all;
 
   .container {
     position: relative;

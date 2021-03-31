@@ -6,6 +6,7 @@
   display: flex;
   @include fluid(padding, 25, 50);
   @include fluid(margin, -25, -50);
+  pointer-events: all;
 
   svg {
     @include fluid(height, 20, 34);

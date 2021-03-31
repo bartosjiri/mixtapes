@@ -1,12 +1,14 @@
 import React from "react"
 
+import PreviewNavigation from "../preview-navigation/PreviewNavigation"
 import PreviewCover from "../preview-cover/PreviewCover"
-import PreviewText from "../preview-text/PreviewText"
+import PreviewContent from "../preview-content/PreviewContent"
 
 const Preview = () => (
   <>
+    <PreviewNavigation />
     <PreviewCover />
-    <PreviewText />
+    <PreviewContent />
   </>
 )
 

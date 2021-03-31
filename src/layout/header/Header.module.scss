@@ -10,7 +10,8 @@
   @include fluid(padding-bottom, 15, 30);
   @include fluid(padding-left, 20, 60);
   @include fluid(padding-right, 20, 60);
-  z-index: 200;
+  pointer-events: none;
+  z-index: 1000;
 
   .container {
     display: grid;

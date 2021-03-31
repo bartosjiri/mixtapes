@@ -1,5 +1,4 @@
 @import "../../styles/fluid.scss";
-@import "../../styles/transitions.scss";
 
 /* Footer */
 .footer {
@@ -11,7 +10,8 @@
   @include fluid(padding-bottom, 15, 30);
   @include fluid(padding-left, 20, 60);
   @include fluid(padding-right, 20, 60);
-  z-index: 200;
+  pointer-events: none;
+  z-index: 1000;
 
   .container {
     position: relative;
@@ -20,48 +20,12 @@
     align-items: center;
     grid-template-columns: 1fr 1fr;
     
-    &.footerEntering {
-      animation: footerEntering;
-      animation-timing-function: $transition-playlist;
-      animation-fill-mode: forwards;
-    }
-  
-    &.footerExiting {
-      animation: footerExiting;
-      animation-timing-function: $transition-playlist;
-      animation-fill-mode: forwards;
-    }
-    
     .progress {
       justify-self: start;
     }
   
     .spotify {
       justify-self: end;
-    }
-  }
-
-  @keyframes footerEntering {
-    0% {
-      opacity: 0;
-      transform: translateY(-50%);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes footerExiting {
-    0% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    100% {
-      opacity: 0;
-      transform: translateY(50%);
     }
   }
 }
