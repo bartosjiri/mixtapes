@@ -4,7 +4,7 @@ import {Store} from "../../store/Store"
 
 import useMousePosition from "./useMousePosition"
 
-import {GENERAL_TRANSITION_SECONDS} from "../../configuration/application"
+import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 
 import style from "./Cursor.module.scss"
 

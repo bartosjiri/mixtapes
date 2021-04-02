@@ -9,7 +9,7 @@ import playlists from "../../configuration/playlists"
 import {
   BROWSER_SCROLL_SPEED,
   BROWSER_TRANSITION_SECONDS
-} from "../../configuration/application"
+} from "../../constants/application"
 import cursors from "../cursor/cursors"
 
 import style from "./BrowserTitle.module.scss"

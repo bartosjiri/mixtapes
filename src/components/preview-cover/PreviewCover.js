@@ -4,7 +4,7 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 import {Store} from "../../store/Store"
 
 import playlists from "../../configuration/playlists"
-import {BROWSER_TRANSITION_SECONDS} from "../../configuration/application"
+import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
 
 import style from "./PreviewCover.module.scss"
 

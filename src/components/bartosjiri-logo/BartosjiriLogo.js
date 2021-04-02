@@ -2,7 +2,7 @@ import React, {memo, useContext} from "react"
 
 import {Store} from "../../store/Store"
 
-import {GENERAL_TRANSITION_SECONDS} from "../../configuration/application"
+import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
 
 import style from "./BartosjiriLogo.module.scss"

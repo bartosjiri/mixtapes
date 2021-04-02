@@ -6,7 +6,7 @@ import Button from "../button/Button"
 import {Store} from "../../store/Store"
 
 import playlists from "../../configuration/playlists"
-import {BROWSER_TRANSITION_SECONDS} from "../../configuration/application"
+import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
 
 import style from "./PreviewContent.module.scss"

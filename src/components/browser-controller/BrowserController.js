@@ -3,7 +3,7 @@ import {useContext, useEffect} from "react"
 import {Store} from "../../store/Store"
 
 import playlists from "../../configuration/playlists"
-import {BROWSER_DURATION_SECONDS} from "../../configuration/application"
+import {BROWSER_DURATION_SECONDS} from "../../constants/application"
 
 const BrowserController = () => {
   const {autoplay, browser, setBrowser} = useContext(Store)
