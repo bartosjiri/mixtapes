@@ -34,7 +34,8 @@
     "react-page-visibility": "^6.4.0",
     "react-ticker": "^1.2.2",
     "react-transition-group": "^4.4.1",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "zustand": "^3.3.3"
   },
   "devDependencies": {}
 }

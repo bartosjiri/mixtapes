@@ -1,6 +1,6 @@
-import React, {memo, useContext} from "react"
+import React from "react"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
@@ -8,7 +8,7 @@ import cursors from "../cursor/cursors"
 import style from "./BartosjiriLogo.module.scss"
 
 const BartosjiriLogo = () => {
-  const {setCursor} = useContext(Store)
+  const setCursor = useStore(state => state.setCursor)
 
   return (
     <a
@@ -34,4 +34,4 @@ const BartosjiriLogo = () => {
   )
 }
 
-export default memo(BartosjiriLogo)
+export default BartosjiriLogo

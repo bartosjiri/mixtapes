@@ -1,6 +1,6 @@
-import React, {useContext} from "react"
+import React from "react"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
@@ -14,7 +14,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const {setCursor} = useContext(Store)
+  const setCursor = useStore(state => state.setCursor)
 
   return (
     <a

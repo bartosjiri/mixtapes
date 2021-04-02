@@ -1,6 +1,6 @@
-import React, {memo, useContext} from "react"
+import React from "react"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
@@ -8,7 +8,7 @@ import cursors from "../cursor/cursors"
 import style from "./SpotifyLink.module.scss"
 
 const SpotifyLink = () => {
-  const {setCursor} = useContext(Store)
+  const setCursor = useStore(state => state.setCursor)
 
   return (
     <a
@@ -30,4 +30,4 @@ const SpotifyLink = () => {
   )
 }
 
-export default memo(SpotifyLink)
+export default SpotifyLink

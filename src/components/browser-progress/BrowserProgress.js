@@ -1,7 +1,7 @@
-import React, {useContext} from "react"
+import React from "react"
 import {SwitchTransition, CSSTransition} from "react-transition-group"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import playlists from "../../configuration/playlists"
 import {
@@ -13,7 +13,12 @@ import cursors from "../cursor/cursors"
 import style from "./BrowserProgress.module.scss"
 
 const BrowserProgress = () => {
-  const {setCursor, autoplay, setAutoplay, browser, setPreview, preview} = useContext(Store)
+  const setAutoplay = useStore(state => state.setAutoplay)
+  const setCursor = useStore(state => state.setCursor)
+  const setPreview = useStore(state => state.setPreview)
+  const autoplay = useStore(state => state.autoplay)
+  const browser = useStore(state => state.browser)
+  const preview = useStore(state => state.preview)
 
   const handleClick = () => {
     if (preview) {

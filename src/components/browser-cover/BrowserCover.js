@@ -1,7 +1,7 @@
-import React, {useContext} from "react"
+import React from "react"
 import {SwitchTransition, CSSTransition} from "react-transition-group"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
@@ -9,7 +9,8 @@ import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
 import style from "./BrowserCover.module.scss"
 
 const BrowserCover = () => {
-  const {browser, preview} = useContext(Store)
+  const browser = useStore(state => state.browser)
+  const preview = useStore(state => state.preview)
 
   const {title, image} = playlists[browser]
 

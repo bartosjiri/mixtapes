@@ -1,6 +1,6 @@
-import React, {useContext} from "react"
+import React from "react"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import useMousePosition from "./useMousePosition"
 
@@ -9,7 +9,7 @@ import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 import style from "./Cursor.module.scss"
 
 const Cursor = () => {
-  const {cursor} = useContext(Store)
+  const cursor = useStore(state => state.cursor)
 
   const {clientX, clientY, inWindow, isTouch} = useMousePosition()
 

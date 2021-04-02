@@ -1,9 +1,9 @@
-import React, {useContext} from "react"
+import React from "react"
 import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import Button from "../button/Button"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
@@ -12,7 +12,9 @@ import cursors from "../cursor/cursors"
 import style from "./PreviewContent.module.scss"
 
 const PreviewContent = () => {
-  const {setCursor, browser, preview} = useContext(Store)
+  const setCursor = useStore(state => state.setCursor)
+  const browser = useStore(state => state.browser)
+  const preview = useStore(state => state.preview)
 
   const {url, title, genre, tracks, artists} = playlists[browser]
 

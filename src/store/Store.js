@@ -1,38 +1,19 @@
-import React, {createContext, useState} from "react"
+import create from "zustand"
 
 import cursors from "../components/cursor/cursors"
 
-export const Store = createContext()
+const useStore = create(set => ({
+  cursor: cursors.default,
+  setCursor: (value) => set({cursor: value}),
+  autoplay: true,
+  setAutoplay: (value) => set({autoplay: value}),
+  browser: 0,
+  setBrowser: (value) => set({browser: value}),
+  preview: false,
+  setPreview: (value) => set({
+    autoplay: !value,
+    preview: value
+  })
+}))
 
-const Provider = ({children}) => {
-  const [cursor, setCursor] = useState(cursors.default)
-  const [autoplay, setAutoplay] = useState(true)
-  const [browser, setBrowser] = useState(0)
-  const [preview, setPreviewInternal] = useState(false)
-
-  const setPreview = (state) => {
-    setAutoplay(!state)
-    setPreviewInternal(state)
-  }
-
-  return (
-    <Store.Provider value={{
-      cursor,
-      setCursor,
-      autoplay,
-      setAutoplay,
-      browser,
-      setBrowser,
-      preview,
-      setPreview
-    }}>
-      {children}
-    </Store.Provider>
-  )
-}
-
-export default ({element}) => (
-  <Provider>
-    {element}
-  </Provider>
-)
+export default useStore

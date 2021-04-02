@@ -1,7 +1,7 @@
-import React, {useContext} from "react"
+import React from "react"
 import {SwitchTransition, CSSTransition} from "react-transition-group"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
@@ -10,7 +10,10 @@ import cursors from "../cursor/cursors"
 import style from "./PreviewNavigation.module.scss"
 
 const PreviewNavigation = () => {
-  const {setCursor, browser, setBrowser, preview} = useContext(Store)
+  const setBrowser = useStore(state => state.setBrowser)
+  const setCursor = useStore(state => state.setCursor)
+  const browser = useStore(state => state.browser)
+  const preview = useStore(state => state.preview)
 
   const handleClick = (modifier) => {
     if (browser + modifier < 0) {

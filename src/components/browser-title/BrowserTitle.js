@@ -1,9 +1,9 @@
-import React, {useState, useContext} from "react"
+import React, {useState} from "react"
 import {SwitchTransition, CSSTransition} from "react-transition-group"
 import Ticker from "react-ticker"
 import PageVisibility from "react-page-visibility"
 
-import {Store} from "../../store/Store"
+import useStore from "../../store/store"
 
 import playlists from "../../configuration/playlists"
 import {
@@ -15,7 +15,11 @@ import cursors from "../cursor/cursors"
 import style from "./BrowserTitle.module.scss"
 
 const BrowserTitle = () => {
-  const {setCursor, browser, preview, setPreview} = useContext(Store)
+  const setCursor = useStore(state => state.setCursor)
+  const setPreview = useStore(state => state.setPreview)
+  const browser = useStore(state => state.browser)
+  const preview = useStore(state => state.preview)
+
   const {title} = playlists[browser]
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
