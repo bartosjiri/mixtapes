@@ -24,7 +24,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      @include fluid(width, 30, 150);
+      @include fluid(width, 45, 120);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -33,8 +33,8 @@
 
       .arrow {
         display: inline-block;
-        @include fluid(width, 50, 100);
-        @include fluid(height, 50, 100);
+        @include fluid(width, 45, 100);
+        @include fluid(height, 45, 100);
         fill: none;
         stroke: $color-text-secondary;
         stroke-width: 10px;

@@ -39,7 +39,10 @@ const PreviewContent = () => {
             <>
               {preview && (
                 <div className={style.wrapper}>
-                  <div className={style.title}>
+                  <div
+                    className={style.title}
+                    lang="de" // @NOTE: Firefox hyphens fix
+                  >
                     <div className={style.placeholder}>{title}</div>
                     <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>
                     <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>

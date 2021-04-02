@@ -31,17 +31,23 @@ const useMousePosition = () => {
     setIsTouch(checkTouchDevice)
   }
 
+  const handleMouseDown = () => {
+    setIsTouch(checkTouchDevice)
+  }
+
   useEffect(() => {
     document.addEventListener("mousemove", updatePosition, false)
     document.addEventListener("mouseenter", updatePosition, false)
     document.addEventListener("mouseover", handleMouseOver)
     document.addEventListener("mouseout", handleMouseOut)
+    document.addEventListener("mousedown", handleMouseDown)
 
     return () => {
       document.removeEventListener("mousemove", updatePosition)
       document.removeEventListener("mouseenter", updatePosition)
       document.removeEventListener("mouseover", handleMouseOver)
       document.removeEventListener("mouseout", handleMouseOut)
+      document.removeEventListener("mousedown", handleMouseDown)
     }
   }, [])
 

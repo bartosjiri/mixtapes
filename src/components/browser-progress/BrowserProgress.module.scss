@@ -12,8 +12,8 @@
     position: relative;
     display: flex;
     align-items: center;
-    @include fluid(padding, 25, 50);
-    @include fluid(margin, -25, -50);
+    @include fluid(padding, 15, 40);
+    @include fluid(margin, -15, -40);
 
     .value {
       position: relative;
@@ -55,7 +55,7 @@
   
     .bar {
       position: relative;
-      @include fluid(width, 50, 80);
+      @include fluid(width, 60, 80);
       height: 2px;
       background: $color-text-secondary;
       margin: 0 0.5rem;

@@ -3,7 +3,7 @@
 /* Mixtapes logo */
 .logo {
   @include fluid(font-size, 18, 24);
-  @include fluid(padding, 25, 50);
-  @include fluid(margin, -25, -50);
+  @include fluid(padding, 15, 40);
+  @include fluid(margin, -15, -40);
   pointer-events: all;
 }
