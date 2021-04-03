@@ -1,7 +1,45 @@
-const path = require("path")
+require("dotenv").config()
+const axios = require("axios")
 
-const getAccessToken = require(path.join(__dirname, "../../src/util/spotify-api/getAccessToken"))
-const getUserPlaylists = require(path.join(__dirname, "../../src/util/spotify-api/getUserPlaylists"))
+const {SPOTIFY_USER_ID, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET} = process.env
+
+const getAccessToken = async () => {
+  const clientCreds = Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString("base64")
+
+  try {
+    const res = await axios({
+      method: "POST",
+      url: "https://accounts.spotify.com/api/token",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": `Basic ${clientCreds}`
+      },
+      data: "grant_type=client_credentials"
+    })
+
+    return res.data.access_token
+  } catch (err) {
+    console.error("[ERROR] getAccessToken: ", err)
+    console.error("[ERROR] getAccessToken: ", err.response.data.error)
+  }
+}
+
+const getUserPlaylists = async (accessToken) => {
+  try {
+    const res = await axios({
+      method: "GET",
+      url: `https://api.spotify.com/v1/users/${SPOTIFY_USER_ID}/playlists`,
+      headers: {
+        "Authorization": `Bearer ${accessToken}`
+      }
+    })
+
+    return [...res.data.items]
+  } catch (err) {
+    console.error("[ERROR] getUserPlaylists: ", err)
+    console.error("[ERROR] getUserPlaylists: ", err.response.data.error)
+  }
+}
 
 exports.handler = async () => {
   try {
@@ -16,7 +54,7 @@ exports.handler = async () => {
       body: JSON.stringify(playlists)
     }
   } catch (err) {
-    console.error("[ERROR] fetchPlaylists: ", err)
+    console.error("[ERROR] playlists: ", err)
     return {
       statusCode: 500,
       headers: {

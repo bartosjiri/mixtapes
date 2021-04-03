@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import useStore from "../../store/store"
 
@@ -34,6 +35,13 @@ const Button = ({
       </div>
     </a>
   )
+}
+
+Button.propTypes = {
+  href: PropTypes.string,
+  target: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired
 }
 
 export default Button
