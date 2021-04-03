@@ -19,8 +19,8 @@ const getAccessToken = async () => {
 
     return res.data.access_token
   } catch (err) {
-    console.log("[ERROR] getAccessToken: ", err)
-    console.log("[ERROR] getAccessToken: ", err.response.data.error)
+    console.error("[ERROR] getAccessToken: ", err)
+    console.error("[ERROR] getAccessToken: ", err.response.data.error)
   }
 }
 

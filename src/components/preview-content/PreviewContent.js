@@ -5,7 +5,6 @@ import Button from "../button/Button"
 
 import useStore from "../../store/store"
 
-import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
 
@@ -14,9 +13,10 @@ import style from "./PreviewContent.module.scss"
 const PreviewContent = () => {
   const setCursor = useStore(state => state.setCursor)
   const browser = useStore(state => state.browser)
+  const playlists = useStore(state => state.playlists)
   const preview = useStore(state => state.preview)
 
-  const {url, title, genre, tracks, artists} = playlists[browser]
+  const {id, name, genre, tracks, artists} = playlists[browser]
 
   return (
     <div
@@ -45,11 +45,11 @@ const PreviewContent = () => {
                     className={style.title}
                     lang="de" // @NOTE: Firefox hyphens fix
                   >
-                    <div className={style.placeholder}>{title}</div>
-                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>
-                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>
-                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>
-                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{title}</span>
+                    <div className={style.placeholder}>{name}</div>
+                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{name}</span>
+                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{name}</span>
+                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{name}</span>
+                    <span style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>{name}</span>
                   </div>
                   <div
                     className={style.info}
@@ -71,7 +71,7 @@ const PreviewContent = () => {
                     style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
                   >
                     <Button
-                      href={url}
+                      href={`https://open.spotify.com/playlist/${id}`}
                       target="_blank"
                     >
                       <svg

@@ -3,7 +3,6 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import useStore from "../../store/store"
 
-import playlists from "../../configuration/playlists"
 import {
   BROWSER_DURATION_SECONDS,
   BROWSER_TRANSITION_SECONDS
@@ -18,6 +17,7 @@ const BrowserProgress = () => {
   const setPreview = useStore(state => state.setPreview)
   const autoplay = useStore(state => state.autoplay)
   const browser = useStore(state => state.browser)
+  const playlists = useStore(state => state.playlists)
   const preview = useStore(state => state.preview)
 
   const handleClick = () => {

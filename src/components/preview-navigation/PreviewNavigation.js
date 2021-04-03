@@ -3,7 +3,6 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import useStore from "../../store/store"
 
-import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
 
@@ -13,6 +12,7 @@ const PreviewNavigation = () => {
   const setBrowser = useStore(state => state.setBrowser)
   const setCursor = useStore(state => state.setCursor)
   const browser = useStore(state => state.browser)
+  const playlists = useStore(state => state.playlists)
   const preview = useStore(state => state.preview)
 
   const handleClick = (modifier) => {

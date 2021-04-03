@@ -5,6 +5,8 @@ import cursors from "../components/cursor/cursors"
 const useStore = create(set => ({
   cursor: cursors.default,
   setCursor: (value) => set({cursor: value}),
+  playlists: [],
+  setPlaylists: (value) => set({playlists: value}),
   autoplay: true,
   setAutoplay: (value) => set({autoplay: value}),
   browser: 0,

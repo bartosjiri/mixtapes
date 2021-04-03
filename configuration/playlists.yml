@@ -4,11 +4,12 @@
 # - id: playlist id (string; from the playlist URL)
 #   genre: playlist genre (string)
 #   artists: playlist artists list (array of strings)
-#   title: playlist title overwrite (string; optional)
+#   order: playlist position overwrite (integer; optional)
+#   name: playlist title overwrite (string; optional)
 #   image: playlist image overwrite (string; optional; filename located in "/static/images/")
 # ------------------------------------------------------------------------
 
-- 4P7X2ikiccvt9TzkgFTJgw:
+- id: "4P7X2ikiccvt9TzkgFTJgw"
   image: "cover_lelekovo-drum-and-bass.jpg"
   genre: "Drum & Bass"
   artists: [
@@ -23,7 +24,7 @@
     "Black Sun Empire",
     "Tantrum Desire"
   ]
-- 68TJszBgng5YP9WX2Q4b6F:
+- id: "68TJszBgng5YP9WX2Q4b6F"
   image: "cover_drive-by.jpg"
   genre: "Rap & Hip-hop"
   artists: [
@@ -38,7 +39,7 @@
     "Kendrick Lamar",
     "Post Malone"
   ]
-- 3ir9q6YFLiZsiviC112TUa:
+- id: "3ir9q6YFLiZsiviC112TUa"
   image: "cover_walkman-and-rollerblades.jpg"
   genre: "80's Pop"
   artists: [
@@ -53,7 +54,7 @@
     "Aneka",
     "Electric Light Orchestra"
   ]
-- 1OY4LppftzXqXF1pNqqEir:
+- id: "1OY4LppftzXqXF1pNqqEir"
   image: "cover_vhs-dreams.jpg"
   genre: "Retrowave"
   artists: [
@@ -68,7 +69,7 @@
     "Dance with the dead",
     "Meteor"
   ]
-- 3uWiCnd0AUr3oYvTDJXkuI:
+- id: "3uWiCnd0AUr3oYvTDJXkuI"
   genre: "2000's Pop"
   artists: [
     "Atomic Kitten",

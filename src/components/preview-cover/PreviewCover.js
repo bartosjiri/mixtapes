@@ -3,16 +3,16 @@ import {SwitchTransition, CSSTransition} from "react-transition-group"
 
 import useStore from "../../store/store"
 
-import playlists from "../../configuration/playlists"
 import {BROWSER_TRANSITION_SECONDS} from "../../constants/application"
 
 import style from "./PreviewCover.module.scss"
 
 const PreviewCover = () => {
   const browser = useStore(state => state.browser)
+  const playlists = useStore(state => state.playlists)
   const preview = useStore(state => state.preview)
 
-  const {image, title} = playlists[browser]
+  const {image, name} = playlists[browser]
 
   return (
     <div className={style.cover}>
@@ -35,8 +35,8 @@ const PreviewCover = () => {
               {preview && (
                 <div className={style.image}>
                   <img
-                    src={`images/${image}`}
-                    alt={`${title} cover`}
+                    src={image.startsWith("https://") ? image : `images/${image}`}
+                    alt={`${name} cover`}
                     style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
                   />
                 </div>

@@ -9,7 +9,7 @@ const userConfig = yaml.load(fs.readFileSync(userConfigPath, "utf-8"))
 
 const getUserPlaylists = async (accessToken) => {
   if (!userConfig.id) {
-    console.log("[ERROR] getUserPlaylists: Missing Spotify user ID!")
+    console.error("[ERROR] getUserPlaylists: Missing Spotify user ID!")
   }
 
   try {
@@ -23,8 +23,8 @@ const getUserPlaylists = async (accessToken) => {
 
     return [...res.data.items]
   } catch (err) {
-    console.log("[ERROR] getUserPlaylists: ", err)
-    console.log("[ERROR] getUserPlaylists: ", err.response.data.error)
+    console.error("[ERROR] getUserPlaylists: ", err)
+    console.error("[ERROR] getUserPlaylists: ", err.response.data.error)
   }
 }
 

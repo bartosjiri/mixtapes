@@ -5,7 +5,6 @@ import PageVisibility from "react-page-visibility"
 
 import useStore from "../../store/store"
 
-import playlists from "../../configuration/playlists"
 import {
   BROWSER_SCROLL_SPEED,
   BROWSER_TRANSITION_SECONDS
@@ -18,9 +17,10 @@ const BrowserTitle = () => {
   const setCursor = useStore(state => state.setCursor)
   const setPreview = useStore(state => state.setPreview)
   const browser = useStore(state => state.browser)
+  const playlists = useStore(state => state.playlists)
   const preview = useStore(state => state.preview)
 
-  const {title} = playlists[browser]
+  const {name} = playlists[browser]
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
   const handleVisibilityChange = (isVisible) => {
@@ -41,7 +41,7 @@ const BrowserTitle = () => {
           {pageIsVisible && (
             <SwitchTransition mode="in-out">
               <CSSTransition
-                key={`${title}${preview}`}
+                key={`${name}${preview}`}
                 timeout={{
                   enter: 0,
                   exit: BROWSER_TRANSITION_SECONDS * 1000
@@ -67,7 +67,7 @@ const BrowserTitle = () => {
                       >
                         {() => (
                           <h2 style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}>
-                            {title}
+                            {name}
                           </h2>
                         )}
                       </Ticker>
