@@ -2,6 +2,7 @@ import React from "react"
 
 import useStore from "../../store/store"
 
+import userConfig from "../../../configuration/user.yml"
 import {GENERAL_TRANSITION_SECONDS} from "../../constants/application"
 import cursors from "../cursor/cursors"
 
@@ -13,7 +14,7 @@ const SpotifyLink = () => {
   return (
     <a
       className={style.spotify}
-      href="https://open.spotify.com/user/21gi2l2todfet7ujsdtofnn5y"
+      href={`https://open.spotify.com/user/${userConfig.id}`}
       target="_blank"
       rel="noreferrer noopener"
       onMouseEnter={() => setCursor(cursors.arrow)}

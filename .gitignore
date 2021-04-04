@@ -17,7 +17,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
+# Nyc test coverage
 .nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
@@ -26,7 +26,7 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
-# node-waf configuration
+# Node-waf configuration
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
@@ -51,12 +51,12 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variable files
+# Dotenv environment variable files
 .env
 .env.development
 .env.production
 
-# gatsby files
+# Gatsby files
 .cache/
 public
 
@@ -69,5 +69,5 @@ yarn-error.log
 .pnp.js
 .yarn-integrity
 
-# Netlify
-.netlify/dist
+# Build
+dist/

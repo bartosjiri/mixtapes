@@ -1,10 +1,9 @@
 const axios = require("axios")
-const fs = require("fs")
 const path = require("path")
-const yaml = require("js-yaml")
+const req = require('require-yml')
 
 const userConfigPath = path.join(__dirname, "../../../configuration/user.yml")
-const userConfig = yaml.load(fs.readFileSync(userConfigPath, "utf-8"))
+const userConfig = req(userConfigPath)
 
 const getUserPlaylists = async (accessToken) => {
   if (!userConfig.id) {
