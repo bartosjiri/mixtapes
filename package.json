@@ -21,8 +21,8 @@
     "start:lambda": "netlify-lambda serve .netlify/functions",
     "build": "npm run build:app && npm run build:lambda",
     "build:app": "gatsby build",
-    "build:lambda": "netlify-lambda build .netlify/functions && npm run lambda:bundle",
-    "lambda:bundle": "cp -r ./configuration ./dist/server;  cd ./dist/server; zip -r playlists.zip .; find . ! -name playlists.zip -delete",
+    "build:lambda": "netlify-lambda build .netlify/functions && npm run lambda:zip",
+    "lambda:zip": "cp -r ./configuration ./dist/server;  cd ./dist/server; zip -r playlists.zip .; find . ! -name playlists.zip -delete",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
