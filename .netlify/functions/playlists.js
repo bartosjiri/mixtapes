@@ -1,5 +1,3 @@
-require("dotenv").config()
-
 const getAccessToken = require("../../src/util/spotify-api/getAccessToken")
 const getUserPlaylists = require("../../src/util/spotify-api/getUserPlaylists")
 

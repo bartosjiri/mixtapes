@@ -1,8 +1,11 @@
+require("dotenv").config()
 const axios = require("axios")
 const path = require("path")
 const req = require('require-yml')
 
-const userConfigPath = path.join(__dirname, "../../../configuration/user.yml")
+const userConfigPath = process.env.LAMBDA_TASK_ROOT
+  ? path.resolve(process.env.LAMBDA_TASK_ROOT, "./configuration/user.yml")
+  : path.join(__dirname, "../../../configuration/user.yml")
 const userConfig = req(userConfigPath)
 
 const getUserPlaylists = async (accessToken) => {
