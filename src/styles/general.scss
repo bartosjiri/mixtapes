@@ -1,30 +1,35 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./typography.scss";
+
 /* General */
 :root {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
-html {
-  // scroll-snap-type: y mandatory;
+html,
+body {
+  height: 100%;
 }
 
 body {
-  font-family: "Mukta", sans-serif;
-  font-weight: normal;
+  @include typography-font-primary;
   font-size: 1.6rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  color: $color-text-primary;
+  background-color: $color-background-primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  &.noscroll {
-    overflow: hidden;
-    animation: 0.8s delay-overflow;
-
-    @keyframes delay-overflow {
-      from { overflow: auto; }
-    }
-  }
-
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+  
   a {
+    outline: 0;
     text-decoration: none;
   }
+}
+
+::selection {
+  background-color: transparent;
 }

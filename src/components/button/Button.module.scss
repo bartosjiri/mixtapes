@@ -1,0 +1,47 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
+@import "../../styles/transitions.scss";
+@import "../../styles/typography.scss";
+
+/* Button */
+.button {
+  display: inline-block;
+  padding: 0.5rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    @include fluid(padding-top, 6, 10);
+    @include fluid(padding-bottom, 6, 10);
+    @include fluid(padding-left, 12, 20);
+    @include fluid(padding-right, 12, 20);
+    border: 2px solid $color-text-secondary;
+    background: rgba($color-background-primary, 0.66);
+    transition-property: border;
+
+    svg {
+      @include fluid(height, 14, 16);
+      fill: $color-text-primary;
+      margin-right: 1rem;
+
+      transition-property: border;
+      transition-duration: inherit;
+    }
+
+    span {
+      @include fluid(font-size, 16, 18);
+      color: $color-text-primary;
+
+      transition-property: border;
+      transition-duration: inherit;
+    }
+  }
+
+
+  &:hover {
+    .container {
+      border: 2px solid $color-text-primary;
+    }
+  }
+}

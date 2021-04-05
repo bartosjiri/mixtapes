@@ -1,0 +1,31 @@
+@import "../../styles/fluid.scss";
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include fluid(padding-top, 15, 30);
+  @include fluid(padding-bottom, 15, 30);
+  @include fluid(padding-left, 20, 60);
+  @include fluid(padding-right, 20, 60);
+  pointer-events: none;
+  z-index: 1000;
+
+  .container {
+    position: relative;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    
+    .progress {
+      justify-self: start;
+    }
+  
+    .spotify {
+      justify-self: end;
+    }
+  }
+}

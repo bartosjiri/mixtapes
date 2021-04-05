@@ -1,0 +1,26 @@
+@import "typography.scss";
+
+/* Fonts */
+@font-face {
+    font-family: $typography-family-primary;
+    src: url('../../static/fonts/h5cy9imk9c519mdz.eot');
+    src: url('../../static/fonts/h5cy9imk9c519mdz.eot?#iefix') format('embedded-opentype'),
+        url('../../static/fonts/h5cy9imk9c519mdz.woff2') format('woff2'),
+        url('../../static/fonts/h5cy9imk9c519mdz.woff') format('woff'),
+        url('../../static/fonts/h5cy9imk9c519mdz.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $typography-family-secondary;
+    src: url('../../static/fonts/svy72873l4iczwc2.eot');
+    src: url('../../static/fonts/svy72873l4iczwc2.eot?#iefix') format('embedded-opentype'),
+        url('../../static/fonts/svy72873l4iczwc2.woff2') format('woff2'),
+        url('../../static/fonts/svy72873l4iczwc2.woff') format('woff'),
+        url('../../static/fonts/svy72873l4iczwc2.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,30 @@
+@import "../../styles/fluid.scss";
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include fluid(padding-top, 15, 30);
+  @include fluid(padding-bottom, 15, 30);
+  @include fluid(padding-left, 20, 60);
+  @include fluid(padding-right, 20, 60);
+  pointer-events: none;
+  z-index: 1000;
+
+  .container {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    
+    .logo {
+      justify-self: start;
+    }
+  
+    .author {
+      justify-self: end;
+    }
+  }
+}

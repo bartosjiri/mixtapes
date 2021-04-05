@@ -1,38 +1,49 @@
 {
   "name": "mixtapes",
   "version": "1.0.0",
+  "private": true,
+  "description": "Mixtapes",
+  "author": "Jiri Bartos <hi@bartosjiri.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bartosjiri/mixtapes"
+  },
+  "keywords": [
+    "mixtapes",
+    "spotify",
+    "playlist",
+    "music"
+  ],
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
-    "start": "node __sapper__/build"
+    "develop": "gatsby develop",
+    "start": "run-p start:**",
+    "start:app": "npm run develop",
+    "start:lambda": "netlify-lambda serve .netlify/functions",
+    "build": "npm run build:app && npm run build:lambda",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build .netlify/functions && npm run lambda:zip",
+    "lambda:zip": "cp -r ./configuration ./dist/server;  cd ./dist/server; zip -r playlists.zip .; find . ! -name playlists.zip -delete",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
   "dependencies": {
-    "compression": "^1.7.1",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.0",
-    "polka": "next",
-    "sirv": "^0.4.0"
+    "gatsby": "^2.32.8",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-sass": "^3.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-page-visibility": "^6.4.0",
+    "react-ticker": "^1.2.2",
+    "react-transition-group": "^4.4.1",
+    "sass": "^1.32.8",
+    "zustand": "^3.3.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "@rollup/plugin-babel": "^5.0.0",
-    "@rollup/plugin-commonjs": "^12.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-replace": "^2.2.0",
-    "@rollup/plugin-yaml": "^2.1.1",
-    "autoprefixer": "^9.8.5",
-    "node-sass": "^4.14.1",
+    "netlify-lambda": "^2.0.3",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.3.4",
-    "rollup-plugin-svelte": "^5.0.1",
-    "rollup-plugin-terser": "^5.3.0",
-    "sapper": "^0.27.0",
-    "svelte": "^3.0.0",
-    "svelte-preprocess": "^4.0.8"
+    "require-yml": "^2.0.0"
   }
 }

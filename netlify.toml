@@ -1,7 +1,4 @@
-[context.production.environment]
-  SPOTIFY_CLIENT_ID = "your-spotify-client-id"
-  SPOTIFY_CLIENT_SECRET = "your-spotify-client-secret"
-
 [build]
-  command = "npm run export"
-  publish = "__sapper__/export"
+  command = "npm run build"
+  publish = "public"
+  functions = "dist/server"

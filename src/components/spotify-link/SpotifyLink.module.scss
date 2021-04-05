@@ -1,0 +1,22 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
+
+/* Spotify link */
+.spotify {
+  display: flex;
+  @include fluid(padding, 15, 40);
+  @include fluid(margin, -15, -40);
+  pointer-events: all;
+
+  svg {
+    @include fluid(height, 16, 24);
+    fill: $color-text-secondary;
+    transition-property: fill;
+  } 
+
+  &:hover {
+    svg {
+      fill: $color-text-primary;
+    }
+  }
+}

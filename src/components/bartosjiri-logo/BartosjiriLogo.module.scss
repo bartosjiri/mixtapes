@@ -1,0 +1,22 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
+
+/* Bartosjiri logo */
+.logo {
+  display: flex;
+  @include fluid(padding, 15, 40);
+  @include fluid(margin, -15, -40);
+  pointer-events: all;
+
+  svg {
+    @include fluid(height, 24, 34);
+    fill: $color-text-primary;
+    transition-property: fill;
+  } 
+
+  &:hover {
+    svg {
+      fill: #fb4248;
+    }
+  }
+}

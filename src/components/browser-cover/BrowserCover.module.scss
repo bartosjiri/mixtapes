@@ -1,0 +1,83 @@
+@import "../../styles/fluid.scss";
+@import "../../styles/transitions.scss";
+
+/* Browser cover */
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    position: relative;
+    width: 100vmin;
+    height: 100vh;
+
+    .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include fluid(padding, 40, 100);
+      overflow: hidden;
+
+      &.entering {
+        img {
+          animation: browserCoverEntering;
+          animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
+        }
+      }
+
+      &.exiting {
+        img {
+          animation: browserCoverExiting;
+          animation-timing-function: $transition-playlist;
+          animation-fill-mode: forwards;
+        }
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      @keyframes browserCoverEntering {
+        0% {
+          opacity: 0;
+          transform: translateY(-10%);
+          filter: url(#coverFilter);
+        }
+
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes browserCoverExiting {
+        0% {
+          opacity: 1;
+        }
+        
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+  }
+}

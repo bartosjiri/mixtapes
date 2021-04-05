@@ -1,0 +1,115 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fluid.scss";
+@import "../../styles/transitions.scss";
+
+/* Preview navigation */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 500;
+
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    .previous,
+    .next {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      @include fluid(width, 45, 120);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      pointer-events: auto;
+
+      .arrow {
+        display: inline-block;
+        @include fluid(width, 45, 100);
+        @include fluid(height, 45, 100);
+        fill: none;
+        stroke: $color-text-secondary;
+        stroke-width: 10px;
+      }
+    }
+
+    .previous {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    &.entering {
+      .previous {
+        animation: previewNavigationPreviousEntering;
+        animation-timing-function: $transition-playlist;
+        animation-fill-mode: forwards;
+        animation-delay: 0.3s;
+        transform: translateX(-100%);
+
+      }
+
+      .next {
+        animation: previewNavigationNextEntering;
+        animation-timing-function: $transition-playlist;
+        animation-fill-mode: forwards;
+        animation-delay: 0.3s;
+        transform: translateX(100%);
+      }
+    }
+
+    &.exiting {
+      .previous {
+        animation: previewNavigationExiting;
+        animation-timing-function: $transition-playlist;
+        animation-fill-mode: forwards;
+      }
+
+      .next {
+        animation: previewNavigationExiting;
+        animation-timing-function: $transition-playlist;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+
+  @keyframes previewNavigationPreviousEntering {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes previewNavigationNextEntering {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes previewNavigationExiting {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+}
