@@ -5,21 +5,22 @@ import Helmet from 'react-helmet'
 import colorsStyle from '../../styles/colors.scss'
 
 const Head = ({title}) => {
-  const metaVersion = 'X2qwnlHzxX'
+  const metaVersion = '8cyudgr5pu89ausk'
+  const metaURL = "https://mixtapes.bartosjiri.com"
 
   return (
     <Helmet>
       <html lang="en" />
       <title>Mixtapes — bartosjiri</title>
       <meta httpEquiv="Content-Type" content="text/html" />
-      <meta name="description" content="@TODO: Description" />
-      <meta name="author" content="@TODO: Author" />
-      <meta property="og:title" content="@TODO: Title" />
-      <meta property="og:description" content="@TODO: Description" />
-      <meta property="og:image" content={`https://@TODO: URL/meta/og-image.jpg?v=${metaVersion}`} />
-      <meta property="og:image:width" content="1321" />
-      <meta property="og:image:height" content="691" />
-      <meta property="og:url" content="https://@TODO: URL" />
+      <meta name="description" content="Mixtapes & playlists by bartosjiri" />
+      <meta name="author" content="bartosjiri" />
+      <meta property="og:title" content="Mixtapes" />
+      <meta property="og:description" content="Mixtapes & playlists by bartosjiri" />
+      <meta property="og:image" content={`${metaURL}/meta/og-image.jpg?v=${metaVersion}`} />
+      <meta property="og:image:width" content="2400" />
+      <meta property="og:image:height" content="1257" />
+      <meta property="og:url" content={metaURL} />
       <link rel="apple-touch-icon" sizes="180x180" href={`./meta/apple-touch-icon.png?v=${metaVersion}`} />
       <link rel="icon" type="image/png" sizes="32x32" href={`./meta/favicon-32x32.png?v=${metaVersion}`} />
       <link rel="icon" type="image/png" sizes="16x16" href={`./meta/favicon-16x16.png?v=${metaVersion}`} />
