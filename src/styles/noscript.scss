@@ -1,0 +1,18 @@
+@import "./colors.scss";
+
+/* Noscript */
+#noscript {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+  text-align: center;
+  color: $color-text-primary;
+  background: rgba(255, 0, 0, 0.85);
+  padding: 0.5em 1em;
+  z-index: 9999;
+  pointer-events: none;
+}
