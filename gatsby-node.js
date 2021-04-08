@@ -1,5 +1,5 @@
-const getAccessToken = require("./src/util/spotify-api/getAccessToken")
-const getUserPlaylists = require("./src/util/spotify-api/getUserPlaylists")
+const getAccessToken = require("./src/services/spotify-api/getAccessToken")
+const getUserPlaylists = require("./src/services/spotify-api/getUserPlaylists")
 
 exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   const {createNode} = actions

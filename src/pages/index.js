@@ -2,9 +2,9 @@ import React, {useEffect} from "react"
 
 import useStore from "../store/store"
 
-import compilePlaylists from "../util/playlists/compilePlaylists"
-import usePlaylistsQuery from "../util/playlists/usePlaylistsQuery"
-import fetchPlaylists from "../util/playlists/fetchPlaylists"
+import compilePlaylists from "../services/playlists/compilePlaylists"
+import usePlaylistsQuery from "../services/playlists/usePlaylistsQuery"
+import fetchPlaylists from "../services/playlists/fetchPlaylists"
 
 import Layout from "../layout/Layout"
 import Browser from "../components/browser/Browser"

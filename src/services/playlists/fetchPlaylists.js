@@ -1,12 +1,12 @@
 import axios from "axios"
 
-import applicationConfig from "../../../configuration/application.yml"
-
 const fetchPlaylists = async () => {
+  const endpointHost = `${window.location.protocol}//${process.env.NODE_ENV === 'development' ? "localhost:9000" : window.location.host}`
+
   try {
     const res = await axios({
       method: "GET",
-      url: `${applicationConfig.domain}/.netlify/functions/playlists`
+      url: `${endpointHost}/.netlify/functions/playlists`
     })
 
     return res.data
