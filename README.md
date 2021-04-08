@@ -1,48 +1,35 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+[![Mixtapes](static/meta/repository-logo.png)](https://mixtapes.bartosjiri.com)
 
-## 🚀 Quick start
+## Development
 
-1.  **Create a Gatsby site.**
+#### Project initialization
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+1. Install project dependencies:
+   ```sh
+   yarn
+   ```
+2. Setup environment variables in the `.env` file following the `.env.example` template:
+	- Relevant keys can be obtained through [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/applications)
+3. Configure the application through YAML files in the `/configuraton` folder following the instructions in individual files.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+#### Local server
+
+To start developing or managing content on local machine:
+1. Start up the application in development environment:
+    ```sh
+    npm run start
     ```
+2. The site will be running at `http://localhost:8000` with hot-reloading enabled.
+   
+## Deployment
 
-2.  **Start developing.**
+#### Initial setup
 
-    Navigate into your new site’s directory and start it up.
+1. Create a new Netlify site.
+2. Setup environment variables in the *Build & deploy -> Environment* section of settings.
+3. Follow steps in the next section.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+#### Site deployment
 
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. Push changes to the main/master branch.
+2. Wait for Netlify to build and deploy the site.
