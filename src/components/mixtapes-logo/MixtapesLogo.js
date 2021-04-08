@@ -16,15 +16,22 @@ const MixtapesLogo = () => {
     setPreview(false)
   }
 
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) handleClick()
+  }
+
   return (
-    <h1
+    <div
       className={style.logo}
       onClick={() => handleClick()}
       onMouseEnter={() => setCursor(cursors.arrow)}
       onMouseLeave={() => setCursor(cursors.default)}
+      role="button"
+      tabIndex="0"
+      onKeyUp={(e) => handleKeyUp(e)}
     >
-      Mixtapes
-    </h1>
+      <h1>Mixtapes</h1>
+    </div>
   )
 }
 

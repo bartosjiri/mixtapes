@@ -36,12 +36,19 @@ const BrowserProgress = () => {
     setCursor(autoplay ? cursors.pause : cursors.play)
   }
 
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) handleClick()
+  }
+
   return (
     <div
       className={style.progress}
       onClick={() => handleClick()}
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => setCursor(cursors.default)}
+      role="button"
+      tabIndex="0"
+      onKeyUp={(e) => handleKeyUp(e)}
     >
       <div
         className={`${style.container} ${autoplay ? style.active : ""}`}

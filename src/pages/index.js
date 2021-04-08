@@ -21,7 +21,7 @@ const IndexPage = () => {
         setPlaylists(compilePlaylists(fetchedPlaylists))
       }
     })()
-  }, [])
+  }, [setPlaylists])
 
   return (
     <Layout>

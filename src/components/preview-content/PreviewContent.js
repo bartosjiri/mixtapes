@@ -22,6 +22,8 @@ const PreviewContent = () => {
     <div
       className={`${style.content} ${preview ? style.active : ""}`}
       onMouseEnter={() => setCursor(cursors.default)}
+      role="button"
+      tabIndex="-1"
     >
       <div className={style.container}>
         <SwitchTransition>

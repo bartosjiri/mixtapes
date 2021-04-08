@@ -19,7 +19,7 @@ const BrowserController = () => {
       }, BROWSER_DURATION_SECONDS * 1000)
       return () => clearInterval(interval)
     }
-  }, [autoplay, browser, setBrowser])
+  }, [autoplay, browser, setBrowser, playlists.length])
 
   return null
 }

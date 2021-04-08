@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useCallback} from "react"
 
 const useMousePosition = () => {
   const [position, setPosition] = useState({
@@ -21,19 +21,19 @@ const useMousePosition = () => {
     return window.matchMedia("(pointer: coarse)").matches
   }
 
-  const handleMouseOver = () => {
+  const handleMouseOver = useCallback(() => {
     setInWindow(true)
     setIsTouch(checkTouchDevice)
-  }
+  }, [])
 
-  const handleMouseOut = () => {
+  const handleMouseOut = useCallback(() => {
     setInWindow(false)
     setIsTouch(checkTouchDevice)
-  }
+  }, [])
 
-  const handleMouseDown = () => {
+  const handleMouseDown = useCallback(() => {
     setIsTouch(checkTouchDevice)
-  }
+  }, [])
 
   useEffect(() => {
     document.addEventListener("mousemove", updatePosition, false)
@@ -49,7 +49,7 @@ const useMousePosition = () => {
       document.removeEventListener("mouseout", handleMouseOut)
       document.removeEventListener("mousedown", handleMouseDown)
     }
-  }, [])
+  }, [handleMouseOver, handleMouseOut, handleMouseDown])
 
   return {
     ...position,

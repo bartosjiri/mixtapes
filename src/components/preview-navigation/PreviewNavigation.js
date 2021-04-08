@@ -25,6 +25,10 @@ const PreviewNavigation = () => {
     setBrowser(browser + modifier)
   }
 
+  const handleKeyUp = (e, modifier) => {
+    if (e.keyCode === 13) handleClick(modifier)
+  }
+
   return (
     <div className={style.navigation}>
       <SwitchTransition>
@@ -50,6 +54,9 @@ const PreviewNavigation = () => {
                   onMouseEnter={() => setCursor(cursors.previous)}
                   onMouseLeave={() => setCursor(cursors.default)}
                   onClick={() => handleClick(-1)}
+                  role="button"
+                  tabIndex="0"
+                  onKeyUp={(e) => handleKeyUp(e, -1)}
                 >
                   <svg
                     className={style.arrow}
@@ -67,6 +74,9 @@ const PreviewNavigation = () => {
                   onMouseEnter={() => setCursor(cursors.next)}
                   onMouseLeave={() => setCursor(cursors.default)}
                   onClick={() => handleClick(1)}
+                  role="button"
+                  tabIndex="0"
+                  onKeyUp={(e) => handleKeyUp(e, 1)}
                 >
                   <svg
                     className={style.arrow}

@@ -31,10 +31,16 @@ const BrowserTitle = () => {
     if (!preview) setPreview(true)
   }
 
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) handleClick()
+  }
+
   return (
     <div
       className={style.title}
       onMouseEnter={() => setCursor(cursors.default)}
+      role="button"
+      tabIndex="-1"
     >
       <div className={style.container}>
         <PageVisibility onChange={handleVisibilityChange}>
@@ -60,6 +66,9 @@ const BrowserTitle = () => {
                       onClick={() => handleClick()}
                       onMouseEnter={() => setCursor(cursors.enter)}
                       onMouseLeave={() => setCursor(cursors.default)}
+                      role="button"
+                      tabIndex="0"
+                      onKeyUp={(e) => handleKeyUp(e)}
                     >
                       <Ticker
                         mode="chain"

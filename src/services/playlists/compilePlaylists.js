@@ -13,7 +13,7 @@ const compilePlaylists = (fetchedPlaylists) => {
 
   let playlists = []
 
-  fetchedPlaylists.map((fetchedItem, i) => {
+  fetchedPlaylists.forEach((fetchedItem, i) => {
     const playlistConfig = playlistsConfig.find(configItem => configItem.id === fetchedItem.id)
 
     if (!playlistConfig) {
