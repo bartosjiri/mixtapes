@@ -60,7 +60,7 @@ const BrowserCover = () => {
           >
             <animate
               attributeName="baseFrequency"
-              values="0.1 0.1; 0.1 0.3"
+              values="0.1 0.1; 0.1 0.15"
               dur={`${BROWSER_TRANSITION_SECONDS}s`}
               repeatCount="indefinite"
             />
@@ -68,7 +68,7 @@ const BrowserCover = () => {
           <feDisplacementMap
             in="SourceGraphic"
             in2="feTurb"
-            scale="100"
+            scale="20"
             result="feDisplMap"
           />
         </filter>

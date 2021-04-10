@@ -33,3 +33,9 @@ body {
 ::selection {
   background-color: transparent;
 }
+
+@media screen and (pointer: coarse) and (max-width: 767px) {
+  *:focus {
+    outline: none;
+  }
+}

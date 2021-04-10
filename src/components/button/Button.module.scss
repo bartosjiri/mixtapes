@@ -32,7 +32,6 @@
     span {
       @include fluid(font-size, 16, 18);
       color: $color-text-primary;
-
       transition-property: border;
       transition-duration: inherit;
     }

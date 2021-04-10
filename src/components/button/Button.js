@@ -23,7 +23,7 @@ const Button = ({
       target={target}
       rel={target && "noreferren noopener"}
       className={`${style.button} ${className || ""}`}
-      onMouseEnter={() => setCursor(cursors.arrow)}
+      onMouseEnter={() => setCursor(cursors.enter)}
       onMouseLeave={() => setCursor(cursors.default)}
       {...props}
     >

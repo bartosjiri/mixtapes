@@ -36,6 +36,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-page-visibility": "^6.4.0",
+    "react-ready-state-effect": "^1.0.3",
     "react-ticker": "^1.2.2",
     "react-transition-group": "^4.4.1",
     "sass": "^1.32.8",
