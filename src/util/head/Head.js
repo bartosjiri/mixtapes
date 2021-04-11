@@ -35,9 +35,17 @@ const Head = ({title}) => {
       <meta name="theme-color" content={colorsStyle.meta_background} />
       {playlists && playlists.length && playlists.map(item => {
         if (item.image) {
-          const {image} = item
-          return <link rel="prefetch" href={image.startsWith("https://") ? image : `/images/${image}`} as="image" />
+          const {id, image} = item
+          return (
+            <link
+              key={id}
+              rel="prefetch"
+              href={image.startsWith("https://") ? image : `/images/${image}`}
+              as="image"
+            />
+          )
         }
+        return null
       })}
     </Helmet>
   )

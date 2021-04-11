@@ -65,11 +65,11 @@
       }
       
       @keyframes browserCoverExiting {
-        0% {
+        25% {
           opacity: 1;
         }
         
-        50%,
+        75%,
         100% {
           opacity: 0;
         }
