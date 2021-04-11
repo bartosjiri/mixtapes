@@ -35,7 +35,7 @@ const BrowserCover = () => {
               {!preview && (
                 <div className={style.item}>
                   <img
-                    src={image.startsWith("https://") ? image : `images/${image}`}
+                    src={image.startsWith("https://") ? image : `/images/${image}`}
                     alt={`${name} cover`}
                     style={{animationDuration: `${BROWSER_TRANSITION_SECONDS}s`}}
                   />
