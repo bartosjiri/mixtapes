@@ -19,12 +19,18 @@ const Head = ({title}) => {
       <meta httpEquiv="Content-Type" content="text/html" />
       <meta name="description" content="Mixtapes & playlists by bartosjiri" />
       <meta name="author" content="bartosjiri" />
+      <meta property="og:type" content="website" />
       <meta property="og:title" content="Mixtapes" />
       <meta property="og:description" content="Mixtapes & playlists by bartosjiri" />
       <meta property="og:image" content={`${metaURL}/meta/og-image.jpg?v=${metaVersion}`} />
       <meta property="og:image:width" content="2400" />
       <meta property="og:image:height" content="1257" />
       <meta property="og:url" content={metaURL} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Mixtapes" />
+      <meta name="twitter:description" content="Mixtapes & playlists by bartosjiri" />
+      <meta name="twitter:image" content={`${metaURL}/meta/og-image.jpg?v=${metaVersion}`} />
+      <meta name="twitter:creator" content="@bartosjiri_" />
       <link rel="apple-touch-icon" sizes="180x180" href={`/meta/apple-touch-icon.png?v=${metaVersion}`} />
       <link rel="icon" type="image/png" sizes="32x32" href={`/meta/favicon-32x32.png?v=${metaVersion}`} />
       <link rel="icon" type="image/png" sizes="16x16" href={`/meta/favicon-16x16.png?v=${metaVersion}`} />
