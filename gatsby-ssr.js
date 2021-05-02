@@ -1,4 +1,5 @@
 const React = require('react')
+const Noscript = require("./src/util/noscript/Noscript")
 
 exports.onRenderBody = ({
   setHeadComponents,
@@ -14,9 +15,7 @@ exports.onRenderBody = ({
   ])
   setPreBodyComponents([
     <noscript key="noscript">
-      <div id="noscript">
-        <h2>This website works best with JavaScript enabled, not using it may result in limited funcitonality.</h2>
-      </div>
+      <Noscript />
     </noscript>,
     <div key="preloader" id="preloader">
       <div className="preloader_logo">
