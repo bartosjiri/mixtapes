@@ -8,12 +8,12 @@ body {
 }
 
 body {
-	// font-family: var(--font-family-01);
-	// font-size: var(--typography-size-01);
-	// font-weight: var(--typography-weight-01);
-	// line-height: var(--typography-line-height-01);
-	// color: var(--color-foreground-01);
-	// background-color: var(--color-background-01);
+	font-family: var(--font-family-01);
+	font-size: 1.6rem;
+	font-weight: var(--typography-weight-01);
+	line-height: 1.5;
+	color: var(--color-foreground-01);
+	background-color: var(--color-background-01);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
@@ -24,7 +24,7 @@ body {
 		text-decoration: none;
 	}
 
-	// ::selection {
-	// 	background: rgba(136, 170, 228, 0.3);
-	// }
+	::selection {
+		background-color: transparent;
+	}
 }

@@ -1,0 +1,15 @@
+:root {
+	--typography-weight-01: 800;
+}
+
+@mixin typography-font-01 {
+	font-family: var(--font-family-01);
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+@mixin typography-font-02 {
+	font-family: var(--font-family-02);
+	font-weight: 900;
+	text-transform: uppercase;
+}

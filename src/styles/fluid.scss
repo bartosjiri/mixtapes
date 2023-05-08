@@ -1,0 +1,28 @@
+$minViewport: 375;
+$maxViewport: 1920;
+
+@function fluid($minValue, $maxValue) {
+	$x: calc(($maxValue - $minValue) / ($maxViewport - $minViewport));
+	$y: $maxValue - $maxViewport * $x;
+
+	@return unquote('calc(#{100 * $x}vw + #{$y}px)');
+}
+
+@mixin fluid($property, $minValue, $maxValue) {
+	$maxCap: false;
+	$minCap: false;
+
+	#{$property}: fluid($minValue, $maxValue);
+
+	@if $minCap {
+		@media screen and (max-width: ($minViewport - 1px)) {
+			#{$property}: #{$minValue}px;
+		}
+	}
+
+	@if $maxCap {
+		@media screen and (min-width: ($maxViewport + 1px)) {
+			#{$property}: #{$maxValue}px;
+		}
+	}
+}
