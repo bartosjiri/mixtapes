@@ -1,35 +1,38 @@
-[![Mixtapes](static/meta/repository-logo.png)](https://mixtapes.bartosjiri.com)
+# create-svelte
 
-## Development
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-#### Project initialization
+## Creating a project
 
-1. Install project dependencies:
-   ```sh
-   yarn
-   ```
-2. Setup environment variables in the `.env` file following the `.env.example` template:
-	- Relevant keys can be obtained through [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/applications)
-3. Configure the application through YAML files in the `/configuraton` folder following the instructions in individual files.
+If you're seeing this, you've probably already done this step. Congrats!
 
-#### Local server
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-To start developing or managing content on local machine:
-1. Start up the application in development environment:
-    ```sh
-    npm run start
-    ```
-2. The site will be running at `http://localhost:8000` with hot-reloading enabled.
-   
-## Deployment
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-#### Initial setup
+## Developing
 
-1. Create a new Netlify site.
-2. Setup environment variables in the *Build & deploy -> Environment* section of settings.
-3. Follow steps in the next section.
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-#### Site deployment
+```bash
+npm run dev
 
-1. Push changes to the main/master branch.
-2. Wait for Netlify to build and deploy the site.
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
