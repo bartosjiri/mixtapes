@@ -117,7 +117,7 @@ export const GET: RequestHandler = async () => {
 		return json(playlists);
 	} catch (err) {
 		if (import.meta.env.DEV) {
-			console.error('[@DEBUG] /api/spotify/user-playlists - error: ', err);
+			console.error('[@DEBUG] /api/playlists - error: ', err);
 		}
 
 		throw error(500);
