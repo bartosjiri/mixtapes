@@ -10,6 +10,11 @@
 		isLoading,
 		isPlaying
 	} from '$modules/playlists-browser';
+	import {
+		PlaylistDetailContent,
+		PlaylistDetailImage,
+		PlaylistDetailNavigation
+	} from '$modules/playlist-detail';
 
 	onMount(async () => {
 		$playlists = await getPlaylists();
@@ -20,3 +25,6 @@
 
 <PlaylistsBrowserTitle />
 <PlaylistsBrowserImage />
+<PlaylistDetailContent />
+<PlaylistDetailImage />
+<PlaylistDetailNavigation />
