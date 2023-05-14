@@ -36,7 +36,7 @@
 		// @TODO: The initial item's offsetWidth is incorrect; temp workaround:
 		setTimeout(() => {
 			setupMarquee();
-		}, 1000);
+		}, 100);
 	});
 </script>
 
@@ -58,7 +58,7 @@
 <style lang="scss">
 	.marquee {
 		display: flex;
-		animation-name: marquee;
+		animation-name: browserTitleMarquee;
 		animation-duration: var(--duration);
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
@@ -70,7 +70,7 @@
 			@include fluid(font-size, 80, 160);
 			line-height: 1;
 			color: transparent;
-			-webkit-text-stroke: 3px var(--color-foreground-01);
+			-webkit-text-stroke: 2px var(--color-foreground-01);
 			background: inherit;
 			background-clip: text;
 			white-space: nowrap;
@@ -83,7 +83,7 @@
 			}
 		}
 
-		@keyframes marquee {
+		@keyframes browserTitleMarquee {
 			0% {
 				transform: translate3d(0, 0, 0);
 			}

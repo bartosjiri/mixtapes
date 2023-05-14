@@ -5,4 +5,16 @@ export { default as PlaylistsBrowserProgress } from './PlaylistsBrowserProgress.
 export { getPlaylists } from './getPlaylists';
 export { startPlayback, stopPlayback } from './managePlayback';
 
-export { playlists, activeIndex, isLoading, isPlaying, isSelected } from './playlistsBrowser.store';
+export {
+	playlists,
+	currentPlaylist,
+	activeIndex,
+	isLoading,
+	isPlaying,
+	isSelected
+} from './playlistsBrowser.store';
+
+export {
+	PLAYLISTS_BROWSER_DISPLAY_DURATION,
+	PLAYLISTS_BROWSER_TRANSITION_DURATION
+} from './playlistsBrowser.constants';

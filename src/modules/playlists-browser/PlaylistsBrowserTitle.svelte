@@ -1,7 +1,8 @@
 <script lang="ts">
 	import PlaylistsBrowserTitleMarquee from './PlaylistsBrowserTitleMarquee.svelte';
 
-	import { currentPlaylist, isLoading } from './playlistsBrowser.store';
+	import { stopPlayback } from './managePlayback';
+	import { currentPlaylist, isLoading, isSelected } from './playlistsBrowser.store';
 
 	import { PLAYLISTS_BROWSER_TRANSITION_DURATION } from './playlistsBrowser.constants';
 
@@ -11,18 +12,23 @@
 		}deg) translateZ( calc(2.58vw + 30px));`;
 	};
 
-	const inAnimation = (_: Node) => {
-		return {
-			duration: PLAYLISTS_BROWSER_TRANSITION_DURATION,
-			css: (t: number) => titleAnimationCss(t)
-		};
+	const inAnimation = (_: Node) => ({
+		duration: PLAYLISTS_BROWSER_TRANSITION_DURATION,
+		css: (t: number) => titleAnimationCss(t)
+	});
+
+	const outAnimation = (_: Node) => ({
+		duration: PLAYLISTS_BROWSER_TRANSITION_DURATION,
+		css: (t: number) => titleAnimationCss(t, true)
+	});
+
+	const handleClick = () => {
+		$isSelected = true;
+		stopPlayback();
 	};
 
-	const outAniamtion = (_: Node) => {
-		return {
-			duration: PLAYLISTS_BROWSER_TRANSITION_DURATION,
-			css: (t: number) => titleAnimationCss(t, true)
-		};
+	const handleKeyPress = (e: KeyboardEvent) => {
+		if (e.key === 'Enter') handleClick();
 	};
 </script>
 
@@ -30,9 +36,17 @@
 	<div class:playlists-browser-title={true}>
 		<div class:container={true}>
 			{#key $currentPlaylist}
-				<div class:title={true} in:inAnimation out:outAniamtion>
-					<PlaylistsBrowserTitleMarquee>{$currentPlaylist?.name}</PlaylistsBrowserTitleMarquee>
-				</div>
+				{#if !$isSelected}
+					<div
+						class:title={true}
+						in:inAnimation
+						out:outAnimation
+						on:click={handleClick}
+						on:keypress={handleKeyPress}
+					>
+						<PlaylistsBrowserTitleMarquee>{$currentPlaylist?.name}</PlaylistsBrowserTitleMarquee>
+					</div>
+				{/if}
 			{/key}
 		</div>
 	</div>
@@ -49,7 +63,7 @@
 		flex-direction: column;
 		justify-content: center;
 		mix-blend-mode: difference;
-		z-index: 10;
+		z-index: 11;
 
 		.container {
 			position: relative;

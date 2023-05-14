@@ -1,7 +1,13 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 
-	import { playlists, activeIndex, isPlaying, isSelected } from './playlistsBrowser.store';
+	import {
+		playlists,
+		activeIndex,
+		isLoading,
+		isPlaying,
+		isSelected
+	} from './playlistsBrowser.store';
 	import { startPlayback, stopPlayback } from './managePlayback';
 
 	import {
@@ -16,6 +22,7 @@
 	const handleClick = () => {
 		if ($isSelected) {
 			$isSelected = false;
+			startPlayback();
 			// @TODO: Set cursor to pause
 			return;
 		}
@@ -25,36 +32,38 @@
 	};
 </script>
 
-<div
-	class:playlists-browser-progress={true}
-	class:active={$isPlaying}
-	on:click={handleClick}
-	on:keyup={handleKeyup}
->
-	<div class:value={true}>
-		<span class:placeholder={true}>00</span>
-		{#key $activeIndex}
-			<span
-				class:current={true}
-				in:fly={{ y: '-75%', duration: PLAYLISTS_BROWSER_TRANSITION_DURATION }}
-				out:fly={{ y: '75%', duration: PLAYLISTS_BROWSER_TRANSITION_DURATION }}
-			>
-				{($activeIndex + 1).toString().padStart(2, '0')}
+{#if !$isLoading}
+	<div
+		class:playlists-browser-progress={true}
+		class:active={$isPlaying}
+		on:click={handleClick}
+		on:keyup={handleKeyup}
+	>
+		<div class:value={true}>
+			<span class:placeholder={true}>00</span>
+			{#key $activeIndex}
+				<span
+					class:current={true}
+					in:fly={{ y: '-75%', duration: PLAYLISTS_BROWSER_TRANSITION_DURATION }}
+					out:fly={{ y: '75%', duration: PLAYLISTS_BROWSER_TRANSITION_DURATION }}
+				>
+					{($activeIndex + 1).toString().padStart(2, '0')}
+				</span>
+			{/key}
+		</div>
+		<div class:bar={true}>
+			{#key $activeIndex}
+				<div class:fill={true} style="animation-duration: {PLAYLISTS_BROWSER_DISPLAY_DURATION}ms" />
+			{/key}
+		</div>
+		<div class:value={true}>
+			<span class:placeholder={true}>00</span>
+			<span class:total={true}>
+				{($playlists?.length || 0).toString().padStart(2, '0')}
 			</span>
-		{/key}
+		</div>
 	</div>
-	<div class:bar={true}>
-		{#key $activeIndex}
-			<div class:fill={true} style="animation-duration: {PLAYLISTS_BROWSER_DISPLAY_DURATION}ms" />
-		{/key}
-	</div>
-	<div class:value={true}>
-		<span class:placeholder={true}>00</span>
-		<span class:total={true}>
-			{($playlists?.length || 0).toString().padStart(2, '0')}
-		</span>
-	</div>
-</div>
+{/if}
 
 <style lang="scss">
 	.playlists-browser-progress {
