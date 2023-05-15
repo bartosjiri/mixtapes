@@ -43,8 +43,8 @@
 		sizes="180x180"
 		href={`/meta/apple-touch-icon.png?v=${META_VERSION}`}
 	/>
-	<link rel="icon" type="image/svg+xml" href="/meta/favicon.svg" />
-	<link rel="icon" type="image/png" href="/meta/favicon.png" />
+	<link rel="icon" type="image/svg+xml" href="/meta/favicon.svg?v=${META_VERSION}" />
+	<link rel="icon" type="image/png" href="/meta/favicon.png?v=${META_VERSION}" />
 	<link rel="manifest" href={`/meta/site.webmanifest?v=${META_VERSION}`} />
 	<link
 		rel="mask-icon"
