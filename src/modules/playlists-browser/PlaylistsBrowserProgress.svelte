@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 
+	import { cursorStyle } from '$modules/cursor';
+
 	import {
 		playlists,
 		activeIndex,
@@ -15,20 +17,35 @@
 		PLAYLISTS_BROWSER_TRANSITION_DURATION
 	} from './playlistsBrowser.constants';
 
-	const handleKeyup = (e: KeyboardEvent) => {
-		if (e.code === 'Enter') handleClick();
-	};
-
 	const handleClick = () => {
 		if ($isSelected) {
 			$isSelected = false;
 			startPlayback();
-			// @TODO: Set cursor to pause
+			$cursorStyle = 'pause';
 			return;
 		}
 
-		// @TODO: If autoplay, set cursor to play, otherwise set to pause
-		$isPlaying ? stopPlayback() : startPlayback();
+		if ($isPlaying) {
+			stopPlayback();
+			$cursorStyle = 'play';
+			return;
+		}
+
+		startPlayback();
+		$cursorStyle = 'pause';
+	};
+
+	const handleKeyup = (e: KeyboardEvent) => {
+		if (e.code === 'Enter') handleClick();
+	};
+
+	const handleMouseEnter = () => {
+		if ($isSelected || !$isPlaying) {
+			$cursorStyle = 'play';
+			return;
+		}
+
+		$cursorStyle = 'pause';
 	};
 </script>
 
@@ -38,6 +55,8 @@
 		class:active={$isPlaying}
 		on:click={handleClick}
 		on:keyup={handleKeyup}
+		on:mouseenter={handleMouseEnter}
+		on:mouseleave={() => ($cursorStyle = 'default')}
 	>
 		<div class:value={true}>
 			<span class:placeholder={true}>00</span>

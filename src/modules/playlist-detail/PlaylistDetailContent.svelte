@@ -6,6 +6,7 @@
 		isSelected,
 		PLAYLISTS_BROWSER_TRANSITION_DURATION
 	} from '$modules/playlists-browser';
+	import { cursorStyle } from '$modules/cursor';
 
 	import { addClassName } from '$util/transition';
 
@@ -43,7 +44,12 @@
 							{/each}
 						</div>
 						<div class:action={true}>
-							<a href="https://open.spotify.com/playlist/{$currentPlaylist?.id}" target="_blank">
+							<a
+								href="https://open.spotify.com/playlist/{$currentPlaylist?.id}"
+								target="_blank"
+								on:mouseenter={() => ($cursorStyle = 'enter')}
+								on:mouseleave={() => ($cursorStyle = 'default')}
+							>
 								<div class:link={true}>
 									{@html SpotifyLogo}
 									<span>Play now</span>

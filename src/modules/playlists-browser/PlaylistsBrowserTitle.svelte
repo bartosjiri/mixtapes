@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PlaylistsBrowserTitleMarquee from './PlaylistsBrowserTitleMarquee.svelte';
+	import { cursorStyle } from '$modules/cursor';
 
 	import { stopPlayback } from './managePlayback';
 	import { currentPlaylist, isLoading, isSelected } from './playlistsBrowser.store';
@@ -25,10 +26,15 @@
 	const handleClick = () => {
 		$isSelected = true;
 		stopPlayback();
+		$cursorStyle = 'default';
 	};
 
 	const handleKeyPress = (e: KeyboardEvent) => {
 		if (e.key === 'Enter') handleClick();
+	};
+
+	const handleMouseEnter = () => {
+		if (!$isSelected) $cursorStyle = 'enter';
 	};
 </script>
 
@@ -43,6 +49,8 @@
 						out:outAnimation
 						on:click={handleClick}
 						on:keypress={handleKeyPress}
+						on:mouseenter={handleMouseEnter}
+						on:mouseleave={() => ($cursorStyle = 'default')}
 					>
 						<PlaylistsBrowserTitleMarquee>{$currentPlaylist?.name}</PlaylistsBrowserTitleMarquee>
 					</div>

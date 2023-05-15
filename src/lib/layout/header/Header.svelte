@@ -1,13 +1,41 @@
 <script lang="ts">
+	import { activeIndex, isSelected, startPlayback, stopPlayback } from '$modules/playlists-browser';
+	import { cursorStyle } from '$modules/cursor';
+
 	import BartosjiriLogo from './bartosjiri.svg?raw';
+
+	const handleClick = () => {
+		if ($activeIndex === 0 && !$isSelected) return;
+
+		$activeIndex = 0;
+		$isSelected = false;
+		stopPlayback();
+		startPlayback();
+	};
+
+	const handleKeyUp = (e: KeyboardEvent) => {
+		if (e.code === 'Enter') handleClick();
+	};
 </script>
 
 <header>
 	<div class:container={true}>
-		<div class:logo={true}>
+		<div
+			class:logo={true}
+			on:click={handleClick}
+			on:keyup={handleKeyUp}
+			on:mouseenter={() => ($cursorStyle = 'arrow')}
+			on:mouseleave={() => ($cursorStyle = 'default')}
+		>
 			<span>Mixtapes</span>
 		</div>
-		<a class:author={true} href="https://bartosjiri.com" target="_blank">
+		<a
+			class:author={true}
+			href="https://bartosjiri.com"
+			target="_blank"
+			on:mouseenter={() => ($cursorStyle = 'arrow')}
+			on:mouseleave={() => ($cursorStyle = 'default')}
+		>
 			{@html BartosjiriLogo}
 		</a>
 	</div>

@@ -5,12 +5,15 @@
 		isSelected,
 		PLAYLISTS_BROWSER_TRANSITION_DURATION
 	} from '$modules/playlists-browser';
+	import { cursorStyle } from '$modules/cursor';
 
 	import { addClassName } from '$util/transition';
 
 	import NavigationArrowIcon from './navigationArrow.svg?raw';
 
-	const handleClick = (modifier: -1 | 1) => {
+	type ModifierT = -1 | 1;
+
+	const handleClick = (modifier: ModifierT) => {
 		if (!$playlists?.length) return;
 
 		if ($activeIndex + modifier < 0) {
@@ -26,9 +29,8 @@
 		$activeIndex += modifier;
 	};
 
-	const handleKeyPress = (e: KeyboardEvent) => {
-		if (e.key === 'ArrowLeft') handleClick(-1);
-		if (e.key === 'ArrowRight') handleClick(1);
+	const handleKeyPress = (e: KeyboardEvent, modifier: ModifierT) => {
+		if (e.key === 'Enter') handleClick(modifier);
 	};
 </script>
 
@@ -40,10 +42,22 @@
 			out:addClassName={{ duration: PLAYLISTS_BROWSER_TRANSITION_DURATION }}
 			style="--animation-duration: {PLAYLISTS_BROWSER_TRANSITION_DURATION}ms;"
 		>
-			<div class:previous={true} on:click={() => handleClick(-1)} on:keypress={handleKeyPress}>
+			<div
+				class:previous={true}
+				on:click={() => handleClick(-1)}
+				on:keypress={(e) => handleKeyPress(e, -1)}
+				on:mouseenter={() => ($cursorStyle = 'previous')}
+				on:mouseleave={() => ($cursorStyle = 'default')}
+			>
 				{@html NavigationArrowIcon}
 			</div>
-			<div class:next={true} on:click={() => handleClick(1)} on:keypress={handleKeyPress}>
+			<div
+				class:next={true}
+				on:click={() => handleClick(1)}
+				on:keypress={(e) => handleKeyPress(e, 1)}
+				on:mouseenter={() => ($cursorStyle = 'next')}
+				on:mouseleave={() => ($cursorStyle = 'default')}
+			>
 				{@html NavigationArrowIcon}
 			</div>
 		</div>

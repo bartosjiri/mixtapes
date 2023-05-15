@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PlaylistsBrowserProgress } from '$modules/playlists-browser';
+	import { cursorStyle } from '$modules/cursor';
 
 	import { userConfig } from '$config';
 
@@ -11,7 +12,13 @@
 		<div class:progress={true}>
 			<PlaylistsBrowserProgress />
 		</div>
-		<a class:spotify={true} href="https://open.spotify.com/user/{userConfig.id}" target="_blank">
+		<a
+			class:spotify={true}
+			href="https://open.spotify.com/user/{userConfig.id}"
+			target="_blank"
+			on:mouseenter={() => ($cursorStyle = 'arrow')}
+			on:mouseleave={() => ($cursorStyle = 'default')}
+		>
 			{@html SpotifyLogo}
 		</a>
 	</div>
