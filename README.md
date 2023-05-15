@@ -1,38 +1,36 @@
-# create-svelte
+<p align="center">
+  <a href="https://mixtapes.bartosjiri.com" target="_blank"><img src="static/meta/repository-logo.png" alt="Repository logo" /></a>
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Requirements
 
-## Creating a project
+- [Node.js](https://nodejs.org/en/) >=18
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Development
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. Install project dependencies:
+   ```
+   pnpm i
+   ```
+2. Run the application in the development mode:
+   ```
+   pnpm run dev
+   ```
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Deployment
 
-## Developing
+#### Using providers with SvelteKit support
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Deploy the application using the provider of your preference with SvelteKit support.
+2. Provide required environment variables based on the `.env.example` file.
 
-```bash
-npm run dev
+#### Self-hosting
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Set up required environment variables based on the `.env.example` file.
+2. Follow the SvelteKit's [node server deployment documentation](https://kit.svelte.dev/docs/adapter-node).
 
-## Building
+## Guides
 
-To create a production version of your app:
+#### Obtaining Spotify client ID and client secret
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Follow the [official documentation](https://developer.spotify.com/documentation/web-api/concepts/apps).
