@@ -28,7 +28,8 @@
 						}}
 						style="--animation-duration: {PLAYLISTS_BROWSER_TRANSITION_DURATION}ms;"
 					>
-						<div class:title={true}>
+						<div class:title={true} lang="de">
+							<!-- @NOTE: lang for Firefox hyphens fix -->
 							<div class:placeholder={true}>{$currentPlaylist?.name}</div>
 							{#each { length: 3 } as _}
 								<span>{$currentPlaylist?.name}</span>
@@ -70,15 +71,20 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		overflow: hidden;
 
 		.container {
-			position: relative;
-			@include fluid(padding-left, 30, 480);
-			@include fluid(padding-right, 30, 480);
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			@include fluid(margin-left, 30, 480);
+			@include fluid(margin-right, 30, 480);
 
 			.content {
 				position: absolute;
@@ -147,11 +153,13 @@
 				.artists {
 					text-align: center;
 					@include fluid(margin-top, 20, 40);
+					@include fluid(max-width, 375, 920);
 
 					span {
 						display: inline-block;
 						@include fluid(font-size, 14, 18);
-						@include fluid(margin-right, 25, 50);
+						@include fluid(margin-left, 12, 24);
+						@include fluid(margin-right, 12, 24);
 
 						&:last-of-type {
 							margin-right: 0;
@@ -193,42 +201,6 @@
 								border: 2px solid var(--color-foreground-01);
 							}
 						}
-					}
-				}
-
-				&:global(.entering) {
-					:global(.title) {
-						:global(span) {
-							animation: detailTitleEntering;
-							animation-duration: var(--animation-duration);
-							animation-fill-mode: forwards;
-
-							transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
-							opacity: 0;
-
-							&:nth-child(2) {
-								animation-delay: 0.1s;
-							}
-
-							&:nth-child(3) {
-								animation-delay: 0.2s;
-							}
-
-							&:nth-child(4) {
-								animation-delay: 0.3s;
-							}
-						}
-					}
-
-					:global(.meta),
-					:global(.artists),
-					:global(.action) {
-						animation: detailContentEntering;
-						animation-duration: var(--animation-duration);
-						animation-fill-mode: forwards;
-						animation-delay: 0.3s;
-						transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
-						opacity: 0;
 					}
 				}
 
@@ -293,6 +265,41 @@
 						100% {
 							opacity: 0;
 						}
+					}
+				}
+
+				&:global(.entering) {
+					:global(.title) {
+						:global(span) {
+							animation: detailTitleEntering;
+							animation-duration: var(--animation-duration);
+							animation-fill-mode: forwards;
+							transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
+							opacity: 0;
+
+							&:nth-child(2) {
+								animation-delay: 0.1s;
+							}
+
+							&:nth-child(3) {
+								animation-delay: 0.2s;
+							}
+
+							&:nth-child(4) {
+								animation-delay: 0.3s;
+							}
+						}
+					}
+
+					:global(.meta),
+					:global(.artists),
+					:global(.action) {
+						animation: detailContentEntering;
+						animation-duration: var(--animation-duration);
+						animation-fill-mode: forwards;
+						animation-delay: 0.3s;
+						transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
+						opacity: 0;
 					}
 				}
 			}
