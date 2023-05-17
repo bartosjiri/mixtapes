@@ -1,26 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
-	import {
-		PlaylistsBrowserTitle,
-		PlaylistsBrowserImage,
-		getPlaylists,
-		startPlayback,
-		playlists,
-		isLoading,
-		isPlaying
-	} from '$modules/playlists-browser';
+	import { PlaylistsBrowserTitle, PlaylistsBrowserImage } from '$modules/playlists-browser';
 	import {
 		PlaylistDetailContent,
 		PlaylistDetailImage,
 		PlaylistDetailNavigation
 	} from '$modules/playlist-detail';
-
-	onMount(async () => {
-		$playlists = await getPlaylists();
-		$isLoading = false;
-		if (!$isPlaying) startPlayback();
-	});
 </script>
 
 <PlaylistsBrowserTitle />

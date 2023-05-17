@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { addClassName } from '$util/transition';
 
-	import { currentPlaylist, isLoading, isSelected } from './playlistsBrowser.store';
+	import { isLoading } from '$modules/preloader';
+	import { currentPlaylist, isSelected } from './playlistsBrowser.store';
 
 	import { PLAYLISTS_BROWSER_TRANSITION_DURATION } from './playlistsBrowser.constants';
 </script>
@@ -109,11 +110,11 @@
 				}
 
 				@keyframes browserImageLeaving {
-					0% {
+					25% {
 						opacity: 1;
 					}
 
-					50%,
+					75%,
 					100% {
 						opacity: 0;
 					}

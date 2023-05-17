@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { isLoading } from '$modules/preloader';
 	import {
 		currentPlaylist,
 		activeIndex,
-		isLoading,
 		isSelected,
 		PLAYLISTS_BROWSER_TRANSITION_DURATION
 	} from '$modules/playlists-browser';
@@ -93,6 +93,9 @@
 				color: inherit;
 				z-index: 100;
 
+				$title-font-size-min: 50;
+				$title-font-size-max: 100;
+
 				.title {
 					position: relative;
 					display: flex;
@@ -106,7 +109,7 @@
 						left: 0;
 						right: 0;
 						@include typography-font-02;
-						@include fluid(font-size, 50, 100);
+						@include fluid(font-size, $title-font-size-min, $title-font-size-max);
 						line-height: 1;
 						text-align: center;
 						color: transparent;
@@ -200,7 +203,7 @@
 							animation-duration: var(--animation-duration);
 							animation-fill-mode: forwards;
 
-							transform: translateY(20rem);
+							transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
 							opacity: 0;
 
 							&:nth-child(2) {
@@ -224,7 +227,7 @@
 						animation-duration: var(--animation-duration);
 						animation-fill-mode: forwards;
 						animation-delay: 0.3s;
-						transform: translateY(10rem);
+						transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
 						opacity: 0;
 					}
 				}
@@ -248,7 +251,7 @@
 
 					@keyframes detailTitleEntering {
 						0% {
-							transform: translateY(20rem);
+							transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
 							opacity: 0;
 						}
 
@@ -271,7 +274,7 @@
 
 					@keyframes detailContentEntering {
 						0% {
-							transform: translateY(10rem);
+							transform: translateY(#{fluid($title-font-size-min * 2, $title-font-size-max * 2)});
 							opacity: 0;
 						}
 

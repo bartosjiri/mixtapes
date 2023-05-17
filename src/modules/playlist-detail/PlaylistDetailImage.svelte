@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { isLoading } from '$modules/preloader';
 	import {
 		currentPlaylist,
 		activeIndex,
-		isLoading,
 		isSelected,
 		PLAYLISTS_BROWSER_TRANSITION_DURATION
 	} from '$modules/playlists-browser';
@@ -81,7 +81,10 @@
 				}
 
 				@keyframes detailImageEntering {
-					0%,
+					0% {
+						opacity: 0;
+					}
+
 					33% {
 						transform: scale(1);
 						opacity: 1;

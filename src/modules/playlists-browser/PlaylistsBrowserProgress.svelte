@@ -3,13 +3,8 @@
 
 	import { cursorStyle } from '$modules/cursor';
 
-	import {
-		playlists,
-		activeIndex,
-		isLoading,
-		isPlaying,
-		isSelected
-	} from './playlistsBrowser.store';
+	import { isLoading } from '$modules/preloader';
+	import { playlists, activeIndex, isPlaying, isSelected } from './playlistsBrowser.store';
 	import { startPlayback, stopPlayback } from './managePlayback';
 
 	import {

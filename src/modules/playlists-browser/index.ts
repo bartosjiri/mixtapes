@@ -9,7 +9,6 @@ export {
 	playlists,
 	currentPlaylist,
 	activeIndex,
-	isLoading,
 	isPlaying,
 	isSelected
 } from './playlistsBrowser.store';

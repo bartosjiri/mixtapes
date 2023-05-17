@@ -2,8 +2,9 @@
 	import PlaylistsBrowserTitleMarquee from './PlaylistsBrowserTitleMarquee.svelte';
 	import { cursorStyle } from '$modules/cursor';
 
+	import { isLoading } from '$modules/preloader';
 	import { stopPlayback } from './managePlayback';
-	import { currentPlaylist, isLoading, isSelected } from './playlistsBrowser.store';
+	import { currentPlaylist, isSelected } from './playlistsBrowser.store';
 
 	import { PLAYLISTS_BROWSER_TRANSITION_DURATION } from './playlistsBrowser.constants';
 

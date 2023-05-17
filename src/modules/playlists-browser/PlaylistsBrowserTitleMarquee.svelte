@@ -33,7 +33,7 @@
 	onMount(() => {
 		setupMarquee();
 
-		// @TODO: The initial item's offsetWidth is incorrect; temp workaround:
+		// @TODO: The initial item's offsetWidth is incorrect, related to the used font; temp workaround:
 		setTimeout(() => {
 			setupMarquee();
 		}, 100);
