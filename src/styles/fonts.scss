@@ -1,26 +1,28 @@
-@import "typography.scss";
+$font-family-01: 'h5cy9imk9c519mdz';
+$font-family-02: 'svy72873l4iczwc2';
 
-/* Fonts */
-@font-face {
-    font-family: $typography-family-primary;
-    src: url('../../static/fonts/h5cy9imk9c519mdz.eot');
-    src: url('../../static/fonts/h5cy9imk9c519mdz.eot?#iefix') format('embedded-opentype'),
-        url('../../static/fonts/h5cy9imk9c519mdz.woff2') format('woff2'),
-        url('../../static/fonts/h5cy9imk9c519mdz.woff') format('woff'),
-        url('../../static/fonts/h5cy9imk9c519mdz.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+$font-family-fallback-01: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+:root {
+	--font-family-01: #{$font-family-01}, #{$font-family-fallback-01};
+	--font-family-02: #{$font-family-02}, #{$font-family-fallback-01};
 }
 
 @font-face {
-    font-family: $typography-family-secondary;
-    src: url('../../static/fonts/svy72873l4iczwc2.eot');
-    src: url('../../static/fonts/svy72873l4iczwc2.eot?#iefix') format('embedded-opentype'),
-        url('../../static/fonts/svy72873l4iczwc2.woff2') format('woff2'),
-        url('../../static/fonts/svy72873l4iczwc2.woff') format('woff'),
-        url('../../static/fonts/svy72873l4iczwc2.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+	font-family: $font-family-01;
+	src: url('/fonts/h5cy9imk9c519mdz.woff2') format('woff2'),
+		url('/fonts/h5cy9imk9c519mdz.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: $font-family-02;
+	src: url('/fonts/svy72873l4iczwc2.woff2') format('woff2'),
+		url('/fonts/svy72873l4iczwc2.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
 }

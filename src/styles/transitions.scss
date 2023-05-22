@@ -1,2 +1,4 @@
-/* Transitions */
-$transition-playlist: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+:root {
+	--transition-duration-01: 0.2s;
+	--transition-function-01: cubic-bezier(0.645, 0.045, 0.355, 1);
+}

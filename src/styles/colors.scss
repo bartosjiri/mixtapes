@@ -1,11 +1,11 @@
-/* Colors */
-$color-text-primary: #ffffff;
-$color-text-secondary: #666666;
+$color-background-01: #101010;
 
-$color-background-primary: #212121;
+$color-foreground-01: #ffffff;
+$color-foreground-02: #666666;
 
-// Export as JS
-:export {
-  meta_brand: #fb4248;
-  meta_background:  #212121;
+:root {
+	--color-background-01: #{$color-background-01};
+
+	--color-foreground-01: #{$color-foreground-01};
+	--color-foreground-02: #{$color-foreground-02};
 }

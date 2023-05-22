@@ -1,0 +1,6 @@
+@use './fluid.scss' as *;
+
+:root {
+	--wrapper-padding-x: #{fluid(20, 60)};
+	--wrapper-padding-y: #{fluid(15, 30)};
+}

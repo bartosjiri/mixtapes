@@ -1,35 +1,36 @@
-[![Mixtapes](static/meta/repository-logo.png)](https://mixtapes.bartosjiri.com)
+<p align="center">
+  <a href="https://mixtapes.bartosjiri.com" target="_blank"><img src="static/meta/repository-logo.png" alt="Repository logo" /></a>
+</p>
+
+## Requirements
+
+- [Node.js](https://nodejs.org/en/) >=18
 
 ## Development
 
-#### Project initialization
-
 1. Install project dependencies:
-   ```sh
-   yarn
    ```
-2. Setup environment variables in the `.env` file following the `.env.example` template:
-	- Relevant keys can be obtained through [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/applications)
-3. Configure the application through YAML files in the `/configuraton` folder following the instructions in individual files.
+   pnpm i
+   ```
+2. Run the application in the development mode:
+   ```
+   pnpm run dev
+   ```
 
-#### Local server
-
-To start developing or managing content on local machine:
-1. Start up the application in development environment:
-    ```sh
-    npm run start
-    ```
-2. The site will be running at `http://localhost:8000` with hot-reloading enabled.
-   
 ## Deployment
 
-#### Initial setup
+#### Using providers with SvelteKit support
 
-1. Create a new Netlify site.
-2. Setup environment variables in the *Build & deploy -> Environment* section of settings.
-3. Follow steps in the next section.
+1. Deploy the application using the provider of your preference with SvelteKit support.
+2. Provide required environment variables based on the `.env.example` file.
 
-#### Site deployment
+#### Self-hosting
 
-1. Push changes to the main/master branch.
-2. Wait for Netlify to build and deploy the site.
+1. Set up required environment variables based on the `.env.example` file.
+2. Follow the SvelteKit's [node server deployment documentation](https://kit.svelte.dev/docs/adapter-node).
+
+## Guides
+
+#### Obtaining Spotify client ID and client secret
+
+- Follow the [official documentation](https://developer.spotify.com/documentation/web-api/concepts/apps).
