@@ -1,7 +1,7 @@
 import { json, error, type RequestHandler } from '@sveltejs/kit';
 
 import { env } from '$env/dynamic/private';
-import { userConfig, playlistsConfig } from '$config';
+import { playlistsConfig } from '$config';
 
 import type { PlaylistT } from '$modules/playlist-detail';
 
@@ -50,49 +50,47 @@ const getAccessToken = async (): Promise<string> => {
 	}
 };
 
-const getUserPlaylists = async (accessToken: string): Promise<SpotifyAPIPlaylistPartialT[]> => {
-	if (!userConfig.id) {
-		throw error(400, 'Missing Spotify user ID in the config file');
-	}
-
+const getPlaylistById = async (
+	accessToken: string,
+	playlistId: string
+): Promise<SpotifyAPIPlaylistPartialT | null> => {
 	try {
-		const res = await fetch(
-			`https://api.spotify.com/v1/users/${userConfig.id}/playlists?limit=50`,
-			{
-				headers: {
-					Authorization: `Bearer ${accessToken}`
-				}
+		const res = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+			headers: {
+				Authorization: `Bearer ${accessToken}`
 			}
-		);
-		// @TODO: Fetch all - pagination
+		});
+
+		if (res.status === 404) {
+			if (import.meta.env.DEV) {
+				console.error(
+					`[@DEBUG] /api/playlists - getPlaylist: Could not find playlist with ID ${playlistId}`
+				);
+			}
+			return null;
+		}
 
 		const data = await res.json();
-
-		return [...data.items];
+		return data;
 	} catch (err) {
 		throw error(500);
 	}
 };
 
-const compilePlaylists = (userPlaylists: SpotifyAPIPlaylistPartialT[]): PlaylistT[] => {
+const compilePlaylists = async (accessToken: string) => {
 	if (!playlistsConfig?.length) {
 		throw error(500, 'Missing playlists in the config file');
 	}
 
-	if (!userPlaylists) {
-		throw error(500, "Could not load user's playlists");
-	}
+	const playlistPromises = playlistsConfig
+		.map(async (playlistConfig) => {
+			const targetPlaylist = await getPlaylistById(accessToken, playlistConfig.id);
 
-	const playlists = playlistsConfig.reduce((acc, playlistConfig) => {
-		const targetPlaylist = userPlaylists.find((p) => p.id === playlistConfig.id);
+			if (!targetPlaylist || !targetPlaylist.public) {
+				return null;
+			}
 
-		if (!targetPlaylist || !targetPlaylist.public) {
-			return acc;
-		}
-
-		return [
-			...acc,
-			{
+			return {
 				id: targetPlaylist.id,
 				name: playlistConfig.name || targetPlaylist.name,
 				imageUrl: playlistConfig.image
@@ -101,18 +99,19 @@ const compilePlaylists = (userPlaylists: SpotifyAPIPlaylistPartialT[]): Playlist
 				genre: playlistConfig.genre,
 				artists: playlistConfig.artists,
 				tracksCount: targetPlaylist.tracks?.total
-			}
-		];
-	}, [] as PlaylistT[]);
+			};
+		})
+		.filter((playlist) => playlist !== null);
 
-	return playlists;
+	const playlists = await Promise.all(playlistPromises);
+
+	return playlists as PlaylistT[];
 };
 
 export const GET: RequestHandler = async () => {
 	try {
 		const accessToken = await getAccessToken();
-		const userPlaylists = await getUserPlaylists(accessToken);
-		const playlists = compilePlaylists(userPlaylists);
+		const playlists = await compilePlaylists(accessToken);
 
 		return json(playlists);
 	} catch (err) {

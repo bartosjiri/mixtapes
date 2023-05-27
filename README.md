@@ -12,7 +12,8 @@
    ```
    pnpm i
    ```
-2. Run the application in the development mode:
+2. Provide required environment variables based on the `.env.example` file.
+3. Run the application in the development mode:
    ```
    pnpm run dev
    ```
