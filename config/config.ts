@@ -20,16 +20,16 @@ export const playlistsConfig: PlaylistConfigT[] = [
 		image: 'cover_lelekovo-drum-and-bass.jpg',
 		genre: 'Drum & Bass',
 		artists: [
-			'Dimension',
-			'Wilkinson',
 			'Sub Focus',
-			'Netsky',
-			'Culture Shock',
-			'Cyantific',
-			'The Prototypes',
+			'Kanine',
 			'S.P.Y',
-			'Black Sun Empire',
-			'Tantrum Desire'
+			'Netsky',
+			'K Motionz',
+			'Dimension',
+			'Hybrid Minds',
+			'Chase & Status',
+			'1991',
+			'Culture Shock'
 		]
 	},
 	{
@@ -37,16 +37,15 @@ export const playlistsConfig: PlaylistConfigT[] = [
 		image: 'cover_drive-by.jpg',
 		genre: 'Rap & Hip-hop',
 		artists: [
-			'A$AP Rocky',
-			'Future',
 			'21 Savage',
 			'Drake',
-			'Night Lovell',
-			'Lil Baby',
-			'Travis Scott',
-			'Migos',
 			'Kendrick Lamar',
-			'Post Malone'
+			'Metro Boomin',
+			'A$AP Rocky',
+			'Night Lovell',
+			'Kanye West',
+			'Travis Scott',
+			'Future'
 		]
 	},
 	{
@@ -54,12 +53,12 @@ export const playlistsConfig: PlaylistConfigT[] = [
 		image: 'cover_walkman-and-rollerblades.jpg',
 		genre: "80's Pop",
 		artists: [
-			'Roxette',
-			'a-ha',
-			'Blondie',
-			'TOTO',
-			'Michael Jackson',
 			'Alphaville',
+			'Blondie',
+			'Roxette',
+			'Michael Jackson',
+			'TOTO',
+			'a-ha',
 			'The buggles',
 			'New Order',
 			'Aneka',
@@ -79,24 +78,37 @@ export const playlistsConfig: PlaylistConfigT[] = [
 			'Botnit',
 			'Tokyo Rose',
 			'Pertrubator',
-			'Dance with the dead',
 			'Meteor'
 		]
 	},
 	{
 		id: '3uWiCnd0AUr3oYvTDJXkuI',
+		image: 'cover_mtv-generation.jpg',
 		genre: "2000's Pop",
 		artists: [
-			'Atomic Kitten',
+			'Britney Spears',
 			'Madonna',
-			'Kylie Minogue',
-			'Rihanna',
-			't.A.T.u.',
 			'Eminem',
-			'Sugababes',
+			'Shakira',
+			'Christina Aguilera',
+			'Kylie Minogue',
 			'Nelly Furtado',
-			'TLC',
-			'Shakira'
+			'Justin Timberlake',
+			'Gwen Stefani'
+		]
+	},
+	{
+		id: '1Xs4mQitJAjYDUaJX3Cphu',
+		image: 'cover_nahodne-seskupeni-rostlin.jpg',
+		genre: 'Czech indie',
+		artists: [
+			'něco něco',
+			'Bert and Friends',
+			'Ille',
+			'Fallgrapp',
+			'Neřvi mi do ucha',
+			'Tolstoys',
+			'Bad Karma Boy'
 		]
 	}
 ];
