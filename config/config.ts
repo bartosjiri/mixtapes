@@ -2,7 +2,7 @@ export type UserConfigT = {
 	id: string;
 };
 
-export const userConfig: UserConfigT = {
+export const CONFIG_USER: UserConfigT = {
 	id: '21gi2l2todfet7ujsdtofnn5y'
 };
 
@@ -14,7 +14,7 @@ export type PlaylistConfigT = {
 	artists: string[];
 };
 
-export const playlistsConfig: PlaylistConfigT[] = [
+export const CONFIG_PLAYLISTS: PlaylistConfigT[] = [
 	{
 		id: '4P7X2ikiccvt9TzkgFTJgw',
 		image: 'cover_lelekovo-drum-and-bass.jpg',
@@ -112,3 +112,5 @@ export const playlistsConfig: PlaylistConfigT[] = [
 		]
 	}
 ];
+
+export const CONFIG_PLAYLISTS_RANDOMIZE = true;

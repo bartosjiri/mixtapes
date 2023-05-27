@@ -2,7 +2,7 @@
 	import { PlaylistsBrowserProgress } from '$modules/playlists-browser';
 	import { cursorStyle } from '$modules/cursor';
 
-	import { userConfig } from '$config';
+	import { CONFIG_USER } from '$config';
 
 	import SpotifyLogo from './spotify.svg?raw';
 </script>
@@ -14,7 +14,7 @@
 		</div>
 		<a
 			class:spotify={true}
-			href="https://open.spotify.com/user/{userConfig.id}"
+			href="https://open.spotify.com/user/{CONFIG_USER.id}"
 			target="_blank"
 			on:mouseenter={() => ($cursorStyle = 'arrow')}
 			on:mouseleave={() => ($cursorStyle = 'default')}

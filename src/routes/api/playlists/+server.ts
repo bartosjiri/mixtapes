@@ -1,7 +1,7 @@
 import { json, error, type RequestHandler } from '@sveltejs/kit';
 
 import { env } from '$env/dynamic/private';
-import { playlistsConfig } from '$config';
+import { CONFIG_PLAYLISTS, CONFIG_PLAYLISTS_RANDOMIZE } from '$config';
 
 import type { PlaylistT } from '$modules/playlist-detail';
 
@@ -78,32 +78,34 @@ const getPlaylistById = async (
 };
 
 const compilePlaylists = async (accessToken: string) => {
-	if (!playlistsConfig?.length) {
+	if (!CONFIG_PLAYLISTS?.length) {
 		throw error(500, 'Missing playlists in the config file');
 	}
 
-	const playlistPromises = playlistsConfig
-		.map(async (playlistConfig) => {
-			const targetPlaylist = await getPlaylistById(accessToken, playlistConfig.id);
+	const playlistPromises = CONFIG_PLAYLISTS.map(async (playlistConfig) => {
+		const targetPlaylist = await getPlaylistById(accessToken, playlistConfig.id);
 
-			if (!targetPlaylist || !targetPlaylist.public) {
-				return null;
-			}
+		if (!targetPlaylist || !targetPlaylist.public) {
+			return null;
+		}
 
-			return {
-				id: targetPlaylist.id,
-				name: playlistConfig.name || targetPlaylist.name,
-				imageUrl: playlistConfig.image
-					? `/assets/images/${playlistConfig.image}`
-					: targetPlaylist.images[0]?.url,
-				genre: playlistConfig.genre,
-				artists: playlistConfig.artists,
-				tracksCount: targetPlaylist.tracks?.total
-			};
-		})
-		.filter((playlist) => playlist !== null);
+		return {
+			id: targetPlaylist.id,
+			name: playlistConfig.name || targetPlaylist.name,
+			imageUrl: playlistConfig.image
+				? `/assets/images/${playlistConfig.image}`
+				: targetPlaylist.images[0]?.url,
+			genre: playlistConfig.genre,
+			artists: playlistConfig.artists,
+			tracksCount: targetPlaylist.tracks?.total
+		};
+	}).filter((playlist) => playlist !== null);
 
 	const playlists = await Promise.all(playlistPromises);
+
+	if (CONFIG_PLAYLISTS_RANDOMIZE) {
+		playlists.sort(() => Math.random() - 0.5);
+	}
 
 	return playlists as PlaylistT[];
 };
