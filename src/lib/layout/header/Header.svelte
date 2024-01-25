@@ -84,7 +84,7 @@
 
 				&:hover {
 					:global(svg) {
-						fill: #fb4248;
+						fill: #FF0033;
 					}
 				}
 			}
