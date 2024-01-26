@@ -15,12 +15,12 @@
 	};
 
 	const inAnimation = (_: Node) => ({
-		duration: PLAYLISTS_BROWSER_TRANSITION_DURATION,
+		duration: PLAYLISTS_BROWSER_TRANSITION_DURATION / 2,
 		css: (t: number) => titleAnimationCss(t)
 	});
 
 	const outAnimation = (_: Node) => ({
-		duration: PLAYLISTS_BROWSER_TRANSITION_DURATION,
+		duration: PLAYLISTS_BROWSER_TRANSITION_DURATION / 2,
 		css: (t: number) => titleAnimationCss(t, true)
 	});
 
