@@ -60,11 +60,14 @@
 </div>
 
 <style lang="scss">
-	:global(*) {
-		cursor: none !important;
+	@media (hover: hover) {
+		:global(*) {
+			cursor: none !important;
+		}
 	}
 
 	.cursor {
+		display: none;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -75,6 +78,10 @@
 
 		$cursor-base-translate: translate(-50%, -50%);
 		$cursor-base-scale: scale(0.33);
+
+		@media (hover: hover) {
+			display: block;
+		}
 
 		.shape {
 			position: absolute;
