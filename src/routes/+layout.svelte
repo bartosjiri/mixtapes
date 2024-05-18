@@ -1,5 +1,5 @@
 <script>
-	import { FathomAnalytics } from '$util/fathom-analytics';
+	import { UmamiAnalytics } from '$util/umami-analytics';
 	import { PageMeta } from '$util/meta';
 
 	import { Preloader } from '$modules/preloader';
@@ -9,8 +9,8 @@
 	import '../styles/_global.scss';
 </script>
 
-<FathomAnalytics />
 <PageMeta />
+<UmamiAnalytics />
 
 <Preloader />
 <Cursor />
